@@ -1,0 +1,42 @@
+package com.example.firebase;
+
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+
+public class Welcome extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_welcome);
+        ImageView imageView = findViewById(R.id.logowelcome);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade);
+        imageView.startAnimation(animation);
+
+
+        Thread timer = new Thread(){
+
+            @Override
+            public void run() {
+
+                try {
+                    sleep(4000);
+                    Intent intent = new Intent(Welcome.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    super.run();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        };
+
+        timer.start();
+    }
+}

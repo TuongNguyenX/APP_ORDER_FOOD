@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1C223C</color>
+    <color name="colorPrimaryDark">#1C223C</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorPurple">#983CFF</color>
+    <color name="colorPurpleT">#64983cff</color>
+    <color name="colorBlue">#2FB4FF</color>
+    <color name="colorBlueT">#642fb4ff</color>
+    <color name="overlayBackground">#7f333639</color>
+    <color name="overlayActionBar">#0e0d0e</color>
+    <color name="black">#000000</color>
+    <color name="grey">#bfbfbf</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="green">#01CF56</color>
+    <color name="colorLine">#dad6d6</color>
+    <color name="dark">#FF222222</color>
+    <color name="light">#FFEEEEEE</color>
+    <color name="my_statusbar_color">#FF0000</color>
+
+    <color name="com_facebook_button_background_color_focused_disabled">#3C5A99</color>
+<color name="com_facebook_button_background_color_focused">#3C5A99</color>
+<color name="com_facebook_button_border_color_focused">#3C5A99</color>
+</resources>
