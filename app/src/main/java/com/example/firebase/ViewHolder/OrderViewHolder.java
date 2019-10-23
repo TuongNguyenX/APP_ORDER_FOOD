@@ -17,7 +17,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements
     public TextView txtOrderId,txtOrderStatus,
             txtOrderPhone,txtOrderAddress,
             txtOrderName,
-            txtOrderTotal,
+            txtOrderTotal,txtOrderDate,
             txtOrderEmail;
     private ItemClickListener itemClickListener;
 
@@ -31,6 +31,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements
         txtOrderAddress = itemView.findViewById(R.id.order_address);
         txtOrderName = itemView.findViewById(R.id.order_name);
         txtOrderEmail = itemView.findViewById(R.id.order_email);
+        txtOrderDate = itemView.findViewById(R.id.order_time_food);
         itemView.setOnCreateContextMenuListener(this);
         itemView.setOnClickListener(this);
 

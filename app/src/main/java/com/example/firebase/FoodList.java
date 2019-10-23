@@ -88,6 +88,7 @@ public class FoodList extends AppCompatActivity {
         }
     };
 
+
     FirebaseRecyclerAdapter<Food, FoodViewHolder> adapter;
 
     FirebaseRecyclerAdapter<Food, FoodViewHolder> searchAdapter;
@@ -167,109 +168,12 @@ public class FoodList extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         shareDialog = new ShareDialog(this);
         ////search
-        materialSearchBar =findViewById(R.id.search_Bar);
-        materialSearchBar.setHint("Enter your Foods");
-        loadListSearchFood();/////write function to load list from firebase//////////
-        materialSearchBar.setLastSuggestions(suggestList);
-        materialSearchBar.setCardViewElevation(10);
-        materialSearchBar.addTextChangeListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                List<String> suggest=new ArrayList<String>();
-                for (String search:suggestList)
-                {
-                    if (search.toLowerCase().contains(materialSearchBar.getText().toLowerCase()))
-                        suggest.add(search);
-                }
-                materialSearchBar.setLastSuggestions(suggest);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
-            @Override
-            public void onSearchStateChanged(boolean enabled) {
-                ///when  search bar is close
-                ///restore original adapter
-                if (!enabled){
-                    recyclerView.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onSearchConfirmed(CharSequence text) {
-                ///When search finish
-                ///Show result of search adapter
-                startSearch(text);
-            }
-
-            @Override
-            public void onButtonClicked(int buttonCode) {
-
-            }
-        });
 
     }
 
-    private void startSearch(CharSequence text) {
-        searchAdapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>
-                (Food.class,R.layout.item_food,FoodViewHolder.class,
-                        databaseReference_Food.orderByChild("menuId").equalTo(categoryId)) {
-            @Override
-            protected void populateViewHolder(FoodViewHolder foodViewHolder, Food food, int i) {
-                foodViewHolder.food_name.setText(food.getName());
-                Picasso.with(getBaseContext())
-                        .load(food.getImage())
-                        .placeholder(R.drawable.imgerror)
-                        .error(R.drawable.imgerror)
-                        .into(foodViewHolder.food_image);
-                foodViewHolder.food_price.setText(String.format(food.getPrice()+"₫ %s"));
-                final Food local = food;
-
-                foodViewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        Intent i = new Intent(FoodList.this,FoodDetail.class);
-                        i.putExtra("FoodId",adapter.getRef(position).getKey());
-                        startActivity(i);
-//                        Toast.makeText(FoodList.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
 
 
 
-                    }
-                });
-
-            }
-        };
-        recyclerView.setAdapter(searchAdapter);
-    }
-
-    private void loadListSearchFood() {
-        databaseReference_Food.orderByChild("menuId").equalTo(categoryId)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot postsnapshot:dataSnapshot.getChildren())
-                        {
-                            Food item  = postsnapshot.getValue(Food.class);
-                            suggestList.add(item.getName());///Add nanme of food to list
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-    }
 
     private void loadMenuFood_Category(String categoryId) {
         databaseReference_Category.child(categoryId).addValueEventListener(new ValueEventListener() {

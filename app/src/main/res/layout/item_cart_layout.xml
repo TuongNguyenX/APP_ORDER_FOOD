@@ -69,11 +69,13 @@
 
                 <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
                     android:layout_alignParentRight="true"
-                    android:id="@+id/tv_price_category_other"
+                    android:id="@+id/elegantNumberButton_Cart"
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     app:finalNumber="20"
                     app:initialNumber="1"
+
+                    app:backGroundColor="#0B8B10"
                     android:layout_margin="10dp"
 
                      />

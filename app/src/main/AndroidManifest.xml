@@ -55,7 +55,6 @@
             android:name=".CategoryOtherActivity"
             android:theme="@style/AppCategoryOther" />
         <activity android:name=".Test5" />
-        <activity android:name=".Test4" />
 
         <service
             android:name=".Service.ListenOrder"
@@ -117,12 +116,6 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".Cart"
-            android:theme="@style/AppThemeLogin" />
-        <activity
-            android:name=".CarDetail"
-            android:theme="@style/AppThemeLogin" />
-        <activity
-            android:name=".CarsList"
             android:theme="@style/AppThemeLogin" />
         <activity
             android:name=".Home"

@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
 import com.example.firebase.Model.Order;
@@ -44,6 +45,8 @@ public class Cart extends AppCompatActivity {
     List<Order> carts = new ArrayList<>();
     CartAdapter adapter;
 
+    ElegantNumberButton elegantNumberButton;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -59,6 +62,7 @@ public class Cart extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests");
+
 
         recyclerView = findViewById(R.id.listCart);
 

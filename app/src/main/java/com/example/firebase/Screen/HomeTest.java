@@ -160,6 +160,29 @@ public class HomeTest extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @SuppressLint("SetTextI18n")
     private void setDataToView(FirebaseUser user) {
 

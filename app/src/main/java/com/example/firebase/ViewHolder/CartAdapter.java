@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
+import com.example.firebase.Database.Database;
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Order;
 import com.example.firebase.R;
@@ -27,6 +29,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
 
     public TextView txt_car_name,txt_price;
     public ImageView img_cart_count;
+    public ElegantNumberButton btn_quantity;
     private ItemClickListener itemClickListener;
 
     public void setTxt_car_name(TextView txt_car_name) {
@@ -39,6 +42,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
         txt_car_name = itemView.findViewById(R.id.cart_item_name);
         txt_price = itemView.findViewById(R.id.cart_item_price);
         img_cart_count =itemView.findViewById(R.id.cart_item_count);
+        btn_quantity = itemView.findViewById(R.id.elegantNumberButton_Cart);
         itemView.setOnCreateContextMenuListener(this);
 
 
@@ -83,6 +87,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         cartViewHold.img_cart_count.setImageDrawable(drawable);//da kiem tra
 
         /////////////////////////////////////////////////////////////////
+        cartViewHold.btn_quantity.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
+            @Override
+            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
+                Order order = listData.get(i);
+                order.setQuantity(String.valueOf(newValue));
+                new Database(context).upDateCart(order);
+            }
+        });
         Locale locale = new Locale("vi","VN");
         NumberFormat numberFormat =NumberFormat.getCurrencyInstance(locale);//
         int price =(Integer.parseInt(listData.get(i).getPrice()))*(Integer.parseInt(listData.get(i).getQuantity()));
