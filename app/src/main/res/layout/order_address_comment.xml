@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="12dp"
     app:cardElevation="4dp"
@@ -10,25 +10,7 @@
     android:scrollbars="vertical"
     android:elevation="20dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <View
-            android:layout_width="5.2dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:background="#0B8B10" />
-
-        <View
-            android:layout_width="5.2dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="#0B8B10" />
-
-
-
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,14 +51,13 @@
                     />
 
                 <EditText
-                    android:id="@+id/cart_Order_Address"
+                    android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:hint="Address"
                     android:maxLines="3"
-
                     android:fontFamily="@font/font_a"
                     android:textSize="16sp"
                     android:textColor="#262b39"
@@ -99,12 +80,13 @@
                     android:fontFamily="@font/font_a"
                     android:gravity="center_vertical|start"
                     android:text="Comments:"
+                    android:textStyle="italic"
                     android:textAllCaps="true"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                   />
 
                 <EditText
-                    android:id="@+id/cart_Order_Comments"
+                    android:id="@+id/edtComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -112,10 +94,9 @@
                     android:fontFamily="@font/font_a"
                     android:textColor="#37428b"
                     android:gravity="center_vertical|start"
-                    android:text="#9999999"
+                    android:hint="Comments"
                     android:textAllCaps="true"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
 

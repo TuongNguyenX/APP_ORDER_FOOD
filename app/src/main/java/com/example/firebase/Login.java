@@ -51,11 +51,6 @@ public class Login extends AppCompatActivity {
         //// init checkbox
         Paper.init(this);
 
-
-
-
-
-
         img_register = findViewById(R.id.link_signup);
         img_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,21 +85,7 @@ public class Login extends AppCompatActivity {
                         Paper.book().write(Common.PWD_KEY,et_password.getText().toString());
 
                     }
-//                    final ProgressDialog mDialog = new ProgressDialog(Login.this);
-//                    mDialog.setTitle("Connecting");
-//                    mDialog.setMessage("Please waiting...");
-//                    mDialog.show();
 //
-//                    Runnable progressRunnable = new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            mDialog.cancel();
-//                        }
-//                    };
-//
-//                    Handler pdCanceller = new Handler();
-//                    pdCanceller.postDelayed(progressRunnable, 2000);
 
                     String email = edtPhone.getText().toString();
                     final String password = et_password.getText().toString();

@@ -100,20 +100,22 @@ public class Cart extends AppCompatActivity {
 
         ///////////////
 
-//        LayoutInflater  inflater  = this.getLayoutInflater();
-//        View order_address_comments = inflater.inflate(R.layout.order_address_comment,null);
-//        EditText edtAddress = order_address_comments.findViewById(R.id.cart_Order_Address);
-//        EditText edtComments = order_address_comments.findViewById(R.id.cart_Order_Comments);
+        LayoutInflater  inflater  = this.getLayoutInflater();
+        View order_address_comments = inflater.inflate(R.layout.order_address_comment,null);
+        final EditText edtAddress = order_address_comments.findViewById(R.id.edtAddress);
+        final EditText edtComment = order_address_comments.findViewById(R.id.edtComment);
+
 //
         //////////////
-        final EditText edtAddress = new EditText(Cart.this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-        );
+//        final EditText edtAddress = new EditText(Cart.this);
+//        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+//                LinearLayout.LayoutParams.MATCH_PARENT,
+//                LinearLayout.LayoutParams.MATCH_PARENT
+//        );
+//        edtAddress.setLayoutParams(lp);
+//        alerdialog.setView(edtAddress);///add edit Text to alert dialog
 
-        edtAddress.setLayoutParams(lp);
-        alerdialog.setView(edtAddress);///add edit Text to alert dialog
+        alerdialog.setView(order_address_comments);
         alerdialog.setIcon(R.drawable.ic_cart_black);
         alerdialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -129,6 +131,8 @@ public class Cart extends AppCompatActivity {
                         Common.currentUser.getEmail(),
                         edtAddress.getText().toString(),
                         txtTotalPrice.getText().toString(),
+                        "0",
+                        edtComment.getText().toString(),
                         carts
 
 
@@ -141,7 +145,7 @@ public class Cart extends AppCompatActivity {
                 new Database(getBaseContext()).cleanCart();
                 Intent i = new Intent(Cart.this,Home.class);
                 startActivity(i);
-                Toast.makeText(Cart.this, "Best wish ,See You Later", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, "Order Done !!!", Toast.LENGTH_SHORT).show();
                 finish();
 
 

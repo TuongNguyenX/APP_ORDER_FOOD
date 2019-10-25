@@ -266,7 +266,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         final Category2 category2 = model;
                         Intent i = new Intent(Home.this,SaleList.class);
                         i.putExtra("SaleId",adapter_Sale.getRef(position).getKey());
-//                            i.putExtra("SaleId",adapter_Sale.getRef(position).getKey());
                         startActivity(i);
                     }
                 });
@@ -278,6 +277,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         recyler_menu2.setNestedScrollingEnabled(false);
 
     }
+
+
+
     private void setupSlider() {
         mSlider = findViewById(R.id.slider);
         img_list = new HashMap<>();
