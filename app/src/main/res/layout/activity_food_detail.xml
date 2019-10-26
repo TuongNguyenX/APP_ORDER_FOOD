@@ -261,12 +261,18 @@
                                                     android:foregroundGravity="center" />
 
                                                 <TextView
-                                                    android:id="@+id/tv_nameRating"
+
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
-
                                                     android:layout_marginTop="7dp"
-                                                    android:layout_marginBottom="5dp"
+
+                                                    android:gravity="center"
+                                                    android:text="Phone"
+                                                    android:textSize="24sp" />
+                                                <TextView
+
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
                                                     android:gravity="center"
                                                     android:text="Name user"
                                                     android:textSize="24sp" />
@@ -275,9 +281,10 @@
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:gravity="center"
-                                                    android:text="Rating Product"
+                                                    android:text="Email"
                                                     android:textSize="20sp"
                                                     android:textStyle="italic" />
+
 
                                                 <LinearLayout
                                                     android:id="@+id/bt_rating"

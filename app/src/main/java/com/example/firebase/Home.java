@@ -96,10 +96,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         ///init Firebase
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
-
         database_CategoryOther = FirebaseDatabase.getInstance();
         databaseReference_CategoryOther = database_CategoryOther.getReference("CategoryOther");
-
         database_Sale = FirebaseDatabase.getInstance();
         databaseReference_Sale = database_Sale.getReference("Sale");///Sale
         /////////////////
@@ -384,7 +382,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(activityOrder);
 
         } else if (id == R.id.nav_test) {
-            Intent test = new Intent(Home.this, ListCustomer.class);
+            Intent test = new Intent(Home.this, InfoCustomer.class);
             startActivity(test);
         } else if(id == R.id.nav_change_Passwrod){
            showDialongChangePassword();

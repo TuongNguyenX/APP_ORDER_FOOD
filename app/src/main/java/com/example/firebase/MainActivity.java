@@ -104,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+
+
+
+
+
         }
         else {
             Toast.makeText(MainActivity.this, "Please Check Your Connection", Toast.LENGTH_SHORT).show();

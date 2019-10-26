@@ -21,20 +21,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SaleDetail"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Uiprofile_Detail"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SaleList"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FoodDetail"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FoodList"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ListCustomer"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ShowComments"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".InfoCustomer"></activity>
+        <activity
+            android:name=".SaleDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Uiprofile_Detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SaleList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FoodDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FoodList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListCustomer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowComments"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -51,8 +59,8 @@
             android:name=".GoogleMaps.TrackingOrder"
             android:label="@string/title_activity_tracking_order" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".CategoryOtherActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppCategoryOther" />
         <activity android:name=".Test5" />
 
@@ -95,46 +103,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".EditUIProfile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".UIProfile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeUIProfile" />
         <activity android:name=".TestEmpty" />
         <activity android:name=".Test2" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".MyTeam"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
         <activity android:name=".Test" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".OrderStatus"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeOrder" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".Cart"
-            android:theme="@style/AppThemeLogin" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCart" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Register"
-            android:theme="@style/AppThemeLogin"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeLogin" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeLogin">
-
-        </activity>
+            android:theme="@style/AppThemeLogin"></activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Login"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
 
         <meta-data
