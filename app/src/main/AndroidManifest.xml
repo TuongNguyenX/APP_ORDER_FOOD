@@ -62,7 +62,6 @@
             android:name=".CategoryOtherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppCategoryOther" />
-        <activity android:name=".Test5" />
 
         <service
             android:name=".Service.ListenOrder"
