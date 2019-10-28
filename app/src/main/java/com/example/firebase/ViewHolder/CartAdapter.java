@@ -42,7 +42,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
         txt_car_name = itemView.findViewById(R.id.cart_item_name);
         txt_price = itemView.findViewById(R.id.cart_item_price);
         img_cart_count =itemView.findViewById(R.id.cart_item_count);
-        btn_quantity = itemView.findViewById(R.id.elegantNumberButton_Cart);
+
         itemView.setOnCreateContextMenuListener(this);
 
 
@@ -87,14 +87,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         cartViewHold.img_cart_count.setImageDrawable(drawable);//da kiem tra
 
         /////////////////////////////////////////////////////////////////
-        cartViewHold.btn_quantity.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
-            @Override
-            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
-                Order order = listData.get(i);
-                order.setQuantity(String.valueOf(newValue));
-                new Database(context).upDateCart(order);
-            }
-        });
+
         Locale locale = new Locale("vi","VN");
         NumberFormat numberFormat =NumberFormat.getCurrencyInstance(locale);//
         int price =(Integer.parseInt(listData.get(i).getPrice()))*(Integer.parseInt(listData.get(i).getQuantity()));
