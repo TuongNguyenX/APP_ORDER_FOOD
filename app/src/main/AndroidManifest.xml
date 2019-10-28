@@ -37,9 +37,6 @@
         <activity
             android:name=".FoodList"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ListCustomer"
-            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
