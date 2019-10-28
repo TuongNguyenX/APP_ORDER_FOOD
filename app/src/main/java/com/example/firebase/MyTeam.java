@@ -93,12 +93,5 @@ public class MyTeam extends AppCompatActivity {
         };
         recyler_menu.setAdapter(adapter);
     }
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == android.R.id.home) {
-//            Intent intent = new Intent(MyTeam.this, Home.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+
 }
