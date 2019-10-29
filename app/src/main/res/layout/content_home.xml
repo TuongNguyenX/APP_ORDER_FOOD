@@ -28,7 +28,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nghỉ ngơi ăn uống nào !"
                 android:textStyle="bold"
@@ -65,7 +65,7 @@
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Các sản phẩm giới thiệu"
+                android:text="Các sản phẩm khuyến mãi"
                 android:textStyle="bold"
                 android:textSize="16dp" />
             <TextView
@@ -74,7 +74,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nghỉ ngơi ăn uống nào !"
+                android:text="Nhanh tay lên nào !"
                 android:textStyle="bold"
                 android:textSize="10dp" />
 
