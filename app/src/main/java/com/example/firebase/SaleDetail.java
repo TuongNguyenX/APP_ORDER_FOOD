@@ -84,6 +84,7 @@ public class SaleDetail extends AppCompatActivity {
         TextView tv_feedback_email = findViewById(R.id.tv_feedback_email_sale_detail);
         TextView tv_feedback_phone = findViewById(R.id.tv_feedback_phone_sale_detail);
 
+        ///////////////////
 
         tv_feedback_email.setText(Common.currentUser.getEmail());
         tv_feedback_name.setText(Common.currentUser.getName());
