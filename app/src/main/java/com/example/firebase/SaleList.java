@@ -71,7 +71,7 @@ public class SaleList extends AppCompatActivity {
         if (!saleId.isEmpty() && saleId!= null){
             if (Common.isConnectedtoInternet(getBaseContext())) {
                 loadListSaleDetail(saleId);
-                loadListSale(saleId);
+
 
             }
             else {
@@ -81,32 +81,15 @@ public class SaleList extends AppCompatActivity {
 
     }
 
-    private void loadListSale(String saleId) {
-        databaseReference_Sale.child(saleId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                currentSale = dataSnapshot.getValue(Sale.class);
-                txt_food_Sale = findViewById(R.id.txt_food_Sale);
-                img_food_Sale = findViewById(R.id.img_food_Sale);
-                txt_food_Sale.setText(currentSale.getName());
-                Picasso.with(getBaseContext())
-                        .load(currentSale.getImage())
-                        .into(img_food_Sale);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-    }
-
-    private void loadListSaleDetail(String saleId) {
+    private void loadListSaleDetail(final String saleId) {
         adapter = new FirebaseRecyclerAdapter<Sale, SaleDetailViewHolder>
                 (Sale.class,R.layout.item_sale_list, SaleDetailViewHolder.class, databaseReference.orderByChild("menuId").equalTo(saleId)) {
             @Override
             protected void populateViewHolder(SaleDetailViewHolder saleDetailViewHolder, Sale sale, final int i) {
                 saleDetailViewHolder.name_sale_list.setText(sale.getName());
+                saleDetailViewHolder.star_sale_list.setText(sale.getStar());
                 saleDetailViewHolder.price_sale_list.setText(String.format("$ %s",sale.getPrice()));
                 Picasso.with(getBaseContext())
                         .load(sale.getImage())

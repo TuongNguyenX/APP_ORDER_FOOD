@@ -79,21 +79,12 @@
         <!-- <data android:scheme="@string/fb_login_protocol_scheme" /> -->
         <!-- </intent-filter> -->
         <!-- </activity> -->
-        <activity android:name=".Call.Call" />
-        <activity android:name=".Test3" />
-        <activity android:name=".Screen.ResetPasswordTest" />
-        <activity android:name=".Screen.HomeTest" />
-        <activity android:name=".Screen.RegisterTest" />
-        <activity android:name=".Screen.LoginTest" />
+
         <activity
             android:name=".Welcome"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".EditUIProfile"
@@ -130,7 +121,13 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeLogin"></activity>
+            android:theme="@style/AppThemeLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Login"
             android:screenOrientation="portrait"
