@@ -110,6 +110,18 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
                 Toast.makeText(FoodDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        TextView tv_feedback_name = findViewById(R.id.tv_feedback_name_food_detail);
+        TextView tv_feedback_phone = findViewById(R.id.tv_feedback_phone_food_detail);
+        TextView tv_feedback_email = findViewById(R.id.tv_feedback_email_food_detail);
+
+
+        tv_feedback_name.setText(Common.currentUser.getName());
+        tv_feedback_phone.setText(Common.currentUser.getPhone());
+        tv_feedback_email.setText(Common.currentUser.getEmail());
+
+
     }
 
     private void getRatingFood(String foodId) {

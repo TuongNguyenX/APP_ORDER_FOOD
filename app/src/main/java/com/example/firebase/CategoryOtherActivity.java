@@ -111,7 +111,7 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
 
 
                 ));
-                Toast.makeText(CategoryOtherActivity.this, "ADD R", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CategoryOtherActivity.this, "Add to Cart", Toast.LENGTH_SHORT).show();
 
             }
         });

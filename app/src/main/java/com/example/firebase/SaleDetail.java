@@ -26,6 +26,7 @@ import com.squareup.picasso.Picasso;
 
 public class SaleDetail extends AppCompatActivity {
     ImageView img_Sale_Detail_img;
+
     TextView txt_Sale_Detail_Name,txt_Sale_Detail_Price,txt_Sale_Detail_Des;
     FloatingActionButton floatingActionButton;
     Button button_buy_Sale_Detail;
@@ -78,7 +79,16 @@ public class SaleDetail extends AppCompatActivity {
                 Toast.makeText(SaleDetail.this, "Add To Cart", Toast.LENGTH_SHORT).show();
             }
         });
-    }
+
+        TextView tv_feedback_name = findViewById(R.id.tv_feedback_name_sale_detail);
+        TextView tv_feedback_email = findViewById(R.id.tv_feedback_email_sale_detail);
+        TextView tv_feedback_phone = findViewById(R.id.tv_feedback_phone_sale_detail);
+
+
+        tv_feedback_email.setText(Common.currentUser.getEmail());
+        tv_feedback_name.setText(Common.currentUser.getName());
+        tv_feedback_phone.setText(Common.currentUser.getPhone());
+}
 
     private void loadSaleDetail(String saleDetailId) {
         databaseReference.child(saleDetailId).addValueEventListener(new ValueEventListener() {

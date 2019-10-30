@@ -260,16 +260,15 @@
                                                     android:foregroundGravity="center" />
 
                                                 <TextView
-                                                    android:id="@+id/tv_feedback_phone"
+                                                    android:id="@+id/tv_feedback_phone_sale_detail"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:layout_marginTop="7dp"
-
                                                     android:gravity="center"
                                                     android:text="Phone"
                                                     android:textSize="24sp" />
                                                 <TextView
-                                                    android:id="@+id/tv_feedback_name"
+                                                    android:id="@+id/tv_feedback_name_sale_detail"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:gravity="center"
@@ -277,7 +276,7 @@
                                                     android:textSize="24sp" />
 
                                                 <TextView
-                                                    android:id="@+id/tv_feedback_email"
+                                                    android:id="@+id/tv_feedback_email_sale_detail"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:gravity="center"

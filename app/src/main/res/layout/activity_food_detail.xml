@@ -261,15 +261,15 @@
                                                     android:foregroundGravity="center" />
 
                                                 <TextView
-
+                                                    android:id="@+id/tv_feedback_phone_food_detail"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:layout_marginTop="7dp"
-
                                                     android:gravity="center"
                                                     android:text="Phone"
                                                     android:textSize="24sp" />
                                                 <TextView
+                                                    android:id="@+id/tv_feedback_name_food_detail"
 
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
@@ -278,6 +278,8 @@
                                                     android:textSize="24sp" />
 
                                                 <TextView
+                                                    android:id="@+id/tv_feedback_email_food_detail"
+
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:gravity="center"
