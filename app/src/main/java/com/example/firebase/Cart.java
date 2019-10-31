@@ -91,12 +91,9 @@ public class Cart extends AppCompatActivity {
         loadListCart();
     }
     private void showAlertDialog() {
-
         AlertDialog.Builder alerdialog = new AlertDialog.Builder(Cart.this);
-        alerdialog.setTitle("One more step!");
+        alerdialog.setTitle("One more step !");
         alerdialog.setMessage("Enter your address :): ");
-
-
 
         ///////////////
 
@@ -127,12 +124,9 @@ public class Cart extends AppCompatActivity {
                         txtTotalPrice.getText().toString(),
                         "0",
                         edtComment.getText().toString(),
-                        carts
+                        carts);
+//////////////////////////////////////////////////////////////////////
 
-
-
-
-                );
                 requests.child(String.valueOf(System.currentTimeMillis()))
                         .setValue(request);
 

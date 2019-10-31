@@ -72,15 +72,7 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
         categoryOther_Price = findViewById(R.id.categoryOther_Price);
         categoryOther_Image = findViewById(R.id.categoryOther_Image);
         numberButton = findViewById(R.id.number_button_other);
-//        btn_ShowComments = findViewById(R.id.btn_ShowComments);
-//        btn_ShowComments.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i  = new Intent(CategoryOtherActivity.this,ShowComments.class);
-//                i.putExtra(Common.INTENT_FOOD_ID,categoryOtherId);
-//                startActivity(i);
-//            }
-//        });
+
 
 
 
@@ -107,12 +99,8 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
                         numberButton.getNumber(),
                         categoryOther.getPrice(),
                         categoryOther.getDiscount()
-
-
-
                 ));
                 Toast.makeText(CategoryOtherActivity.this, "Add to Cart", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -123,7 +111,6 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
                 showRatingDialog();
             }
         });
-
         if (getIntent() != null ) {
             categoryOtherId = getIntent().getStringExtra("CategoryOtherId");
         }
@@ -137,20 +124,15 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
                 Toast.makeText(this, "Please check your connection", Toast.LENGTH_SHORT).show();
             }
         }
-
-
     }
 
     private void getRatingCategoryOther(String categoryOtherId) {
-
-
         ///// carsId get  star from firebase
         Query query = ratingTb1.orderByChild("foodId").equalTo(categoryOtherId);
         query.addValueEventListener(new ValueEventListener() {
             int count = 0,sum = 0;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 for (DataSnapshot postSnapshot:dataSnapshot.getChildren())
                 {
 

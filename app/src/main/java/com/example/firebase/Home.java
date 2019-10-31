@@ -229,7 +229,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(Home.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
+
                         Intent i = new Intent(Home.this,FoodList.class);
                         i.putExtra("CategoryId",adapter.getRef(position).getKey());
                         startActivity(i);

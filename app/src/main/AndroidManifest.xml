@@ -52,6 +52,8 @@
         <activity
             android:name=".GoogleMaps.TrackingOrder"
             android:label="@string/title_activity_tracking_order" />
+
+
         <activity
             android:name=".CategoryOtherActivity"
             android:screenOrientation="portrait"
