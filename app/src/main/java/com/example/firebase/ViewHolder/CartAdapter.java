@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
@@ -28,7 +29,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
         View.OnClickListener, View.OnCreateContextMenuListener {
 
     public TextView txt_car_name,txt_price;
-    public ImageView img_cart_count;
+    public ImageView img_cart_count,img_delete_cart;
     public ElegantNumberButton btn_quantity;
     private ItemClickListener itemClickListener;
 
@@ -38,7 +39,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
 
     public CartViewHold(@NonNull View itemView) {
         super(itemView);
-
+        img_delete_cart = itemView.findViewById(R.id.delete_cart);
         txt_car_name = itemView.findViewById(R.id.cart_item_name);
         txt_price = itemView.findViewById(R.id.cart_item_price);
         img_cart_count =itemView.findViewById(R.id.cart_item_count);
@@ -85,7 +86,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         TextDrawable drawable = TextDrawable.builder()
                 .buildRound(""+listData.get(i).getQuantity(), Color.RED);//da kiem tra
         cartViewHold.img_cart_count.setImageDrawable(drawable);//da kiem tra
+        cartViewHold.img_delete_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(context, "kkk", Toast.LENGTH_SHORT).show();
 
+//                deleteCart(.getOrder());
+            }
+        });
         /////////////////////////////////////////////////////////////////
 
         Locale locale = new Locale("vi","VN");

@@ -45,14 +45,13 @@
 
         </LinearLayout>
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
 
                 <TextView
+                    android:layout_weight="1"
                     android:textColor="@color/black"
                     android:id="@+id/cart_item_price"
                     android:layout_width="match_parent"
@@ -62,12 +61,17 @@
                     android:text="$99,999"
                     android:textAllCaps="true"
                     android:textSize="16sp"
-
-
                     />
+                <ImageView
+
+                    android:id="@+id/delete_cart"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_delete" />
 
 
-            </RelativeLayout>
+
 
 
         </LinearLayout>

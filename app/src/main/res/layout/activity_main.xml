@@ -22,17 +22,19 @@
 
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WE WILL FIND THE BEST"
-            android:textStyle="bold"
+
             android:textSize="30dp"
             android:textColor="#0B8B10"
             android:gravity="center"
             />
 
         <TextView
+            android:textStyle="bold"
             android:layout_marginTop="5dp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
@@ -45,6 +47,7 @@
             android:gravity="center"
             />
         <TextView
+            android:textStyle="bold"
             android:layout_marginTop="5dp"
             android:id="@+id/textView4"
             android:layout_width="match_parent"
@@ -55,6 +58,7 @@
             android:gravity="center"
             />
         <TextView
+            android:textStyle="bold"
             android:layout_marginTop="5dp"
             android:id="@+id/textView5"
             android:layout_width="match_parent"
@@ -77,6 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
+                android:textStyle="bold"
                 android:textColor="#0B8B10"
                 android:id="@+id/bt_dangnhapne"
                 android:layout_width="200dp"

@@ -94,7 +94,7 @@ public class Cart extends AppCompatActivity {
 
         AlertDialog.Builder alerdialog = new AlertDialog.Builder(Cart.this);
         alerdialog.setTitle("One more step!");
-        alerdialog.setMessage("Enter your address: ");
+        alerdialog.setMessage("Enter your address :): ");
 
 
 
@@ -107,13 +107,7 @@ public class Cart extends AppCompatActivity {
 
 //
         //////////////
-//        final EditText edtAddress = new EditText(Cart.this);
-//        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT,
-//                LinearLayout.LayoutParams.MATCH_PARENT
-//        );
-//        edtAddress.setLayoutParams(lp);
-//        alerdialog.setView(edtAddress);///add edit Text to alert dialog
+//
 
         alerdialog.setView(order_address_comments);
         alerdialog.setIcon(R.drawable.ic_cart_black);
