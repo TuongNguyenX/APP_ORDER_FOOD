@@ -229,9 +229,10 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
                 else {
                     /// Update new value
                     ratingTb1.child(Common.currentUser.getPhone()).child(foodId).setValue(rating);
+                    Toast.makeText(FoodDetail.this, "Thank you for submit rating", Toast.LENGTH_SHORT).show();
                     finish();
                 }
-                Toast.makeText(FoodDetail.this, "Thank you for submit rating", Toast.LENGTH_SHORT).show();
+
 
             }
 

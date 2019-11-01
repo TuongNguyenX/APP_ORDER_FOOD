@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.firebase.GoogleMap.MapsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -105,8 +106,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         setupSlider();
         Paper.init(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Home");
-        setSupportActionBar(toolbar);
+//        toolbar.setTitle("Home");
+//        setSupportActionBar(toolbar);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -164,6 +165,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         txtFullEmail.setText(Common.currentUser.getEmail());
         txtFullName.setText(Common.currentUser.getName());
         txtFullPhone.setText(Common.currentUser.getPhone());
+
+        TextView tv_profile = findViewById(R.id.profile_textview);
+        tv_profile.setText(Common.currentUser.getName());
 
 
         //Register Service
@@ -382,11 +386,18 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(activityOrder);
 
         } else if (id == R.id.nav_test) {
-            Intent test = new Intent(Home.this, InfoCustomer.class);
-            startActivity(test);
-        } else if(id == R.id.nav_change_Passwrod){
+            Intent map = new Intent(Home.this, MapsActivity.class);
+            startActivity(map);
+        }
+        else if(id == R.id.nav_change_Passwrod){
            showDialongChangePassword();
-        } else if (id == R.id.nav_team) {
+        }
+        else if(id == R.id.nav_info_Customer){
+
+            Intent infoCustomer = new Intent(Home.this, InfoCustomer.class);
+            startActivity(infoCustomer);
+        }
+        else if (id == R.id.nav_team) {
             Intent team = new Intent(Home.this,MyTeam.class);
             startActivity(team);
         } else if (id == R.id.log_out) {

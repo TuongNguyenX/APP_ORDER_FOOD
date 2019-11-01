@@ -44,5 +44,6 @@
     <string name="facebook_app_id">980784938922596</string>
     <string name="fb_login_protocol_name">fb980784938922596</string>
     <string name="title_activity_tracking_order">Map</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
