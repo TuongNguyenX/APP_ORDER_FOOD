@@ -15,12 +15,13 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements
         View.OnClickListener,
         View.OnCreateContextMenuListener {
 
-    public TextView food_name,food_price;
+    public TextView food_name,food_price,food_share_facebook;
     public ImageView food_image,share_img;
     private ItemClickListener itemClickListener;
 
     public FoodViewHolder(@NonNull View itemView) {
         super(itemView);
+        food_share_facebook = itemView.findViewById(R.id.tv_share_facebook);
         food_name=itemView.findViewById(R.id.food_list_name);
         food_image = itemView.findViewById(R.id.food_list_image);
         share_img = itemView.findViewById(R.id.btnShare);

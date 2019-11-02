@@ -37,7 +37,7 @@
 
 
         <TextView
-
+            android:textStyle="bold"
             android:id="@+id/name_sale_list"
             android:layout_marginTop="10dp"
             android:text="Name Food"

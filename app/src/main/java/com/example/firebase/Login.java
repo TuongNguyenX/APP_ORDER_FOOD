@@ -36,9 +36,6 @@ public class Login extends AppCompatActivity {
     ImageButton btRegister;
         private TextView tvLogin;
     String validUser = "[a-zA-Z0-9][a-zA-Z0-9\\-]{3,50}";
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +64,6 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         et_password = findViewById(R.id.editText5);
         bt_login = findViewById(R.id.button3);
         edtPhone=findViewById(R.id.editTextphone);
@@ -77,24 +73,17 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /// Save user & Password
-
                 if (Common.isConnectedtoInternet(getBaseContext())) {
-
                     if (checkBox.isChecked()){
                         Paper.book().write(Common.USER_KEY,edtPhone.getText().toString());
                         Paper.book().write(Common.PWD_KEY,et_password.getText().toString());
-
                     }
-//
-
                     String email = edtPhone.getText().toString();
                     final String password = et_password.getText().toString();
-
                     if (TextUtils.isEmpty(email)) {
                         Toast.makeText(getApplicationContext(), "Please Enter Your email address!", Toast.LENGTH_SHORT).show();
                         return;
                     }
-
                     if (TextUtils.isEmpty(password)) {
                         Toast.makeText(getApplicationContext(), "Please Enter Your Password!", Toast.LENGTH_SHORT).show();
                         return;
@@ -126,8 +115,6 @@ public class Login extends AppCompatActivity {
 
 
                         }
-
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
 

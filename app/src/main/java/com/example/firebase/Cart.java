@@ -64,8 +64,10 @@ public class Cart extends AppCompatActivity {
         requests = database.getReference("Requests");
 
 
-        recyclerView = findViewById(R.id.listCart);
 
+
+
+        recyclerView = findViewById(R.id.listCart);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

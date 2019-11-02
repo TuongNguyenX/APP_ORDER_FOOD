@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textStyle="bold"
                     android:id="@+id/food_list_name"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
@@ -95,19 +96,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:id="@+id/btnShare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_share" />
+
 
                     <TextView
+
+                        android:id="@+id/tv_share_facebook"
+                        android:drawableLeft="@drawable/ic_share"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Share on your Facebook"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
                         android:textColor="#1C223C"
                         android:textSize="15dp"/>

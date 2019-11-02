@@ -52,6 +52,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".FoodDetail"
+            android:theme="@style/AppCategoryOther"
             android:screenOrientation="portrait" />
         <activity
             android:name=".FoodList"

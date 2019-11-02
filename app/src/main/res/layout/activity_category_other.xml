@@ -301,7 +301,7 @@
                                                         android:id="@+id/image_feelback_other"
                                                         android:layout_width="match_parent"
                                                         android:layout_height="50dp"
-                                                        android:src="@drawable/img_feedback" />
+                                                        android:src="@drawable/rating" />
 
                                                     <TextView
                                                         android:layout_width="match_parent"

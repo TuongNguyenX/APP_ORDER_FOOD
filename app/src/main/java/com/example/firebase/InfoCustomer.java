@@ -60,17 +60,13 @@ public class InfoCustomer extends AppCompatActivity {
 
     private void showDiaLog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(InfoCustomer.this);
-
         LayoutInflater inflater = this.getLayoutInflater();
         View add_menu_layout = inflater.inflate(R.layout.dialog_update_info_customer,null);
         edtName = add_menu_layout.findViewById(R.id.edtNameInfoCustomer);
         edtEmail = add_menu_layout.findViewById(R.id.edtEmailInfoCustomer);
         edtPassword = add_menu_layout.findViewById(R.id.edtPasswordInfoCustomer);
         edtPhone= add_menu_layout.findViewById(R.id.edtPhoneInfoCustomer);
-
-
         ////set daufault value  for view
-
         edtName.setText(this.user.getName());
         edtPhone.setText(this.user.getPhone());
         edtPassword.setText(this.user.getPassword());
@@ -78,24 +74,17 @@ public class InfoCustomer extends AppCompatActivity {
 
         alertDialog.setView(add_menu_layout);
         alertDialog.setIcon(R.drawable.ic_add);
-        
-
-
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                ///here just create new category
 
+                ///here just create new category
                 user.setName(edtName.getText().toString());
                 user.setEmail(edtEmail.getText().toString());
                 user.setPhone(edtPhone.getText().toString());
                 user.setPassword(edtPassword.getText().toString());
-
-
 //                 databaseReference.child(key).setValue(user);
-
-
             }
         });
         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
