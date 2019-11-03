@@ -57,12 +57,14 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.rey.material.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import dmax.dialog.SpotsDialog;
 import info.hoang8f.widget.FButton;
 import io.paperdb.Paper;
@@ -70,7 +72,6 @@ import io.paperdb.Paper;
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     FirebaseDatabase database,database_CategoryOther,database_Sale;
     DatabaseReference category, databaseReference_CategoryOther,databaseReference_Sale;
-
     TextView txtFullName,txtFullEmail,txtFullPhone;
     RecyclerView recyler_menu,recyler_menu2,recyler_Other;
     RecyclerView.LayoutManager layoutManager;
@@ -128,6 +129,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         recyler_menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyler_menu.setLayoutManager(layoutManager);
+
+        CircleImageView imageView = findViewById(R.id.profile_image_customer);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this,InfoCustomer.class);
+                startActivity(intent);
+            }
+        });
 
         if (Common.isConnectedtoInternet(getBaseContext())){
             loadMenu();
