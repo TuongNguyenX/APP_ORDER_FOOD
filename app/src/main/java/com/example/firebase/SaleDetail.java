@@ -46,13 +46,13 @@ public class SaleDetail extends AppCompatActivity {
         firebaseDatabase =  FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("SaleDetail");
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SaleDetail.this,Cart.class);
-                startActivity(intent);
-            }
-        });
+//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(SaleDetail.this,Cart.class);
+//                startActivity(intent);
+//            }
+//        });
         if (getIntent()!= null)
             saleDetailId = getIntent().getStringExtra("SaleDetailId");
 
@@ -80,15 +80,15 @@ public class SaleDetail extends AppCompatActivity {
             }
         });
 
-        TextView tv_feedback_name = findViewById(R.id.tv_feedback_name_sale_detail);
-        TextView tv_feedback_email = findViewById(R.id.tv_feedback_email_sale_detail);
-        TextView tv_feedback_phone = findViewById(R.id.tv_feedback_phone_sale_detail);
-
-        ///////////////////
-
-        tv_feedback_email.setText(Common.currentUser.getEmail());
-        tv_feedback_name.setText(Common.currentUser.getName());
-        tv_feedback_phone.setText(Common.currentUser.getPhone());
+//        TextView tv_feedback_name = findViewById(R.id.tv_feedback_name_sale_detail);
+//        TextView tv_feedback_email = findViewById(R.id.tv_feedback_email_sale_detail);
+//        TextView tv_feedback_phone = findViewById(R.id.tv_feedback_phone_sale_detail);
+//
+//        ///////////////////
+//
+//        tv_feedback_email.setText(Common.currentUser.getEmail());
+//        tv_feedback_name.setText(Common.currentUser.getName());
+//        tv_feedback_phone.setText(Common.currentUser.getPhone());
 }
 
     private void loadSaleDetail(String saleDetailId) {
@@ -116,7 +116,7 @@ public class SaleDetail extends AppCompatActivity {
 
     private void controller() {
         img_Sale_Detail_img = findViewById(R.id.img_Sale_Detail_img);
-        floatingActionButton = findViewById(R.id.fab_Cart_Sale_Detail);
+//        floatingActionButton = findViewById(R.id.fab_Cart_Sale_Detail);
         txt_Sale_Detail_Name = findViewById(R.id.txt_Sale_Detail_Name);
         txt_Sale_Detail_Price = findViewById(R.id.txt_Sale_Detail_Price);
         number_Sale_Detail = findViewById(R.id.number_Sale_Detail);

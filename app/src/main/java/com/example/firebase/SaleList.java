@@ -1,8 +1,6 @@
 package com.example.firebase;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,20 +13,12 @@ import android.widget.Toast;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Interface.ItemClickListener;
-import com.example.firebase.Model.Cars;
-import com.example.firebase.Model.Category;
-import com.example.firebase.Model.Category2;
 import com.example.firebase.Model.Sale;
-import com.example.firebase.ViewHolder.CarsViewHold;
-import com.example.firebase.ViewHolder.MenuViewHolder2;
 import com.example.firebase.ViewHolder.SaleDetailViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class SaleList extends AppCompatActivity {

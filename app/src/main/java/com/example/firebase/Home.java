@@ -170,11 +170,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         View hearderView = navigationView.getHeaderView(0);
         txtFullEmail = hearderView.findViewById(R.id.txtFullEmail);
         txtFullName=hearderView.findViewById(R.id.txtFullName);
-        txtFullPhone = hearderView.findViewById(R.id.txtFullPhone);
+//        txtFullPhone = hearderView.findViewById(R.id.txtFullPhone);
 
         txtFullEmail.setText(Common.currentUser.getEmail());
         txtFullName.setText(Common.currentUser.getName());
-        txtFullPhone.setText(Common.currentUser.getPhone());
+//        txtFullPhone.setText(Common.currentUser.getPhone());
 
         TextView tv_profile = findViewById(R.id.profile_textview);
         tv_profile.setText(Common.currentUser.getName());

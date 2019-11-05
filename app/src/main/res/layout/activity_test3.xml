@@ -1,105 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="6dp">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Home"
+    android:scrollbars="none"
+    tools:showIn="@layout/app_bar_home">
     <LinearLayout
+        android:background="#fff"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="200dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/cars_image"
-                        android:scaleType="centerCrop"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        //
-        <LinearLayout
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:text="Các sản phẩm giới thiệu"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:text="Nghỉ ngơi ăn uống nào !"
+            android:textStyle="bold"
+            android:textSize="10dp" />
+        <com.daimajia.slider.library.SliderLayout
+            android:layout_margin="10dp"
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+
+        </com.daimajia.slider.library.SliderLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp">
 
             <View
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0"/>
+                android:id="@+id/view_latest"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="#FF1718" />
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
-                android:orientation="vertical">
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
 
-                <TextView
-                    android:id="@+id/cars_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="center"
-                    android:text="This Is A Nature"
-                    android:textSize="24dp" />
+                android:layout_toEndOf="@+id/view_latest"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Khám phá danh mục"
+                android:textColor="#313131"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
 
-                <LinearLayout
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        </RelativeLayout>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="20dp"
-                        android:src="@drawable/ic_tym" />
+        <RelativeLayout
+            android:layout_width="match_parent"
 
-                    <ImageView
-                        android:id="@+id/btnShare"
-                        android:layout_width="50dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="20dp"
-                        android:src="@drawable/ic_menu_share" />
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
 
-                    <TextView
-                        android:id="@+id/cars_price"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:gravity="right"
-                        android:text="$ 99999"
-                        android:textColor="@color/colorBlue"
-                        android:textSize="24dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
+                android:id="@+id/recycler_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <View
+                android:layout_width="20dp"
+                android:layout_height="110dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_gradient_white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp">
+
+            <View
+                android:id="@+id/view_menu2"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="#FF1718" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/view_menu2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:id="@+id/txt_sale"
+                android:text="Các sản phẩm khuyến mãi"
+                android:textColor="#313131"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/view_menu2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_below="@id/txt_sale"
+                android:text="Nhanh tay kẻo hết !"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_menu2"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <View
+                android:layout_width="20dp"
+                android:layout_height="200dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_gradient_white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp">
+
+            <View
+                android:id="@+id/view_menu3"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="#FF1718" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/button_latest_home_fragment2"
+                android:layout_toEndOf="@+id/view_menu3"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:id="@+id/txt_categoryorther"
+                android:text="Ưu đãi ngập trời"
+                android:textColor="#313131"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/button_latest_home_fragment2"
+                android:layout_toEndOf="@+id/view_menu3"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_below="@id/txt_categoryorther"
+                android:text="Đặt ngay kẻo hết!"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_latest_home_fragment2"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_login_bg"
+                android:text="see all"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_Other"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.recyclerview.widget.RecyclerView>
+
 
 
         </LinearLayout>
 
+
+
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</androidx.core.widget.NestedScrollView>

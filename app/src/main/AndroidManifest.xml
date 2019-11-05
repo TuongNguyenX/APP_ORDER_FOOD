@@ -2,15 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.firebase">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -24,7 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".Test4"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,7 +36,7 @@
 
         <activity
             android:name=".GoogleMap.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity android:name=".InfoCustomer" />
         <activity
             android:name=".SaleDetail"
@@ -52,12 +49,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".FoodDetail"
-            android:theme="@style/AppCategoryOther"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCategoryOther" />
         <activity
             android:name=".FoodList"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".CategoryOtherActivity"
             android:screenOrientation="portrait"
@@ -88,7 +84,7 @@
         <activity
             android:name=".Welcome"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeLogin"></activity>
+            android:theme="@style/AppThemeLogin" />
         <activity
             android:name=".EditUIProfile"
             android:screenOrientation="portrait"

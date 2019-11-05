@@ -18,7 +18,8 @@
     <color name="dark">#FF222222</color>
     <color name="light">#FFEEEEEE</color>
     <color name="my_statusbar_color">#FF0000</color>
-
+    <color name="textView_md">#626262</color>
+    <color name="view_md">#e3e3e4</color>
     <color name="com_facebook_button_background_color_focused_disabled">#3C5A99</color>
 <color name="com_facebook_button_background_color_focused">#3C5A99</color>
 <color name="com_facebook_button_border_color_focused">#3C5A99</color>
