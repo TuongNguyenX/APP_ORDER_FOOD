@@ -30,7 +30,7 @@
                     android:layout_height="300dp"
                     android:paddingBottom="85dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/nature" />
+                    />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
