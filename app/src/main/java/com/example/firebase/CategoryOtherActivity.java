@@ -98,7 +98,8 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
                         categoryOther.getName(),
                         numberButton.getNumber(),
                         categoryOther.getPrice(),
-                        categoryOther.getDiscount()
+                        categoryOther.getDiscount(),
+                        categoryOther.getImage()
                 ));
                 Toast.makeText(CategoryOtherActivity.this, "Add to Cart", Toast.LENGTH_SHORT).show();
             }

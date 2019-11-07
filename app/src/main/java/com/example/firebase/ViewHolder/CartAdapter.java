@@ -14,11 +14,13 @@ import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.firebase.Cart;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Order;
 import com.example.firebase.R;
+import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
         View.OnClickListener, View.OnCreateContextMenuListener {
 
     public TextView txt_car_name,txt_price;
-    public ImageView img_cart_count,img_delete_cart;
+    public ImageView img_cart_count,img_delete_cart,img_info;
     public ElegantNumberButton btn_quantity;
     private ItemClickListener itemClickListener;
 
@@ -39,6 +41,7 @@ class CartViewHold extends RecyclerView.ViewHolder implements
 
     public CartViewHold(@NonNull View itemView) {
         super(itemView);
+        img_info = itemView.findViewById(R.id.img_infocart);
         img_delete_cart = itemView.findViewById(R.id.delete_cart);
         txt_car_name = itemView.findViewById(R.id.cart_item_name);
         txt_price = itemView.findViewById(R.id.cart_item_price);
@@ -67,9 +70,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
     private List<Order> listData = new ArrayList<>();
     private Context context;
 
+
     public CartAdapter(List<Order> listData, Context context) {
         this.listData = listData;
         this.context = context;
+
     }
 
     @NonNull
@@ -83,6 +88,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHold cartViewHold,  final int i) {
+
+
+        Picasso.with(context)
+                .load(listData.get(i).getImage())
+                .into(cartViewHold.img_info);
+
+
         TextDrawable drawable = TextDrawable.builder()
                 .buildRound(""+listData.get(i).getQuantity(), Color.RED);//da kiem tra
         cartViewHold.img_cart_count.setImageDrawable(drawable);//da kiem tra

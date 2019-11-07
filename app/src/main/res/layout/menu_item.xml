@@ -29,10 +29,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/menu_image"
                 android:scaleType="centerCrop"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/image_thum_textview_bg" />
+
 
         </RelativeLayout>
 
@@ -50,7 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/menu_image"
 
-
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="#1C223C"
 
 

@@ -275,6 +275,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         .error(R.drawable.error)
                         .into(viewHolder.imgMenuImage2);
 
+
+
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {

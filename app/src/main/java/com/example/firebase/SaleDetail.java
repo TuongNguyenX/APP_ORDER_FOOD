@@ -73,7 +73,8 @@ public class SaleDetail extends AppCompatActivity {
                         currentSale.getName(),
                         number_Sale_Detail.getNumber(),
                         currentSale.getPrice(),
-                        currentSale.getDiscount()
+                        currentSale.getDiscount(),
+                        currentSale.getImage()
 
                 ));
                 Toast.makeText(SaleDetail.this, "Add To Cart", Toast.LENGTH_SHORT).show();

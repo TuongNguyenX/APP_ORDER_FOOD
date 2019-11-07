@@ -73,9 +73,10 @@ public class MyTeam extends AppCompatActivity {
             protected void populateViewHolder(TeamViewHolder viewHolder, Team model, int position) {
                 viewHolder.tv_name_team.setText(model.getName());
                 viewHolder.tv_vitri.setText(model.getLocation());
-                Picasso.with(getBaseContext()).load(model.getAvatar())
+                Picasso.with(getBaseContext())
+                        .load(model.getAvatar())
                         .placeholder(R.drawable.imgerror)
-                        .error(R.drawable.imgerror)
+                        .error(R.drawable.error)
                         .into(viewHolder.img_profile);
 
                 final Team clickitem = model;
