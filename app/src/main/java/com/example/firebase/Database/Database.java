@@ -84,17 +84,17 @@ public class Database extends SQLiteAssetHelper {
         db.execSQL(query);
     }
 
-    public  boolean isFavorites (String foodId)
-    {
-        SQLiteDatabase db = getReadableDatabase();
-        String query = String.format("SELECT * FROM Favorites WHERE FoodId='%s';",foodId);
-        Cursor cursor = db.rawQuery(query,null);
-        if(cursor.getCount() <= 0)
-        {
-            cursor.close();
-            return false;
-        }
-        cursor.close();
-        return true;
-    }
+//    public  boolean isFavorites (String foodId)
+//    {
+//        SQLiteDatabase db = getReadableDatabase();
+//        String query = String.format("SELECT * FROM Favorites WHERE FoodId='%s';",foodId);
+//        Cursor cursor = db.rawQuery(query,null);
+//        if(cursor.getCount() <= 0)
+//        {
+//            cursor.close();
+//            return false;
+//        }
+//        cursor.close();
+//        return true;
+//    }
 }

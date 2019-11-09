@@ -221,9 +221,9 @@ public class FoodList extends AppCompatActivity {
 
                     }
                 });
-               if (localDB.isFavorites(adapter.getRef(i).getKey())){
-
-               }
+//               if (localDB.isFavorites(adapter.getRef(i).getKey())){
+//
+//               }
 //                foodViewHolder.share_img.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
