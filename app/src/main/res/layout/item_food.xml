@@ -81,14 +81,20 @@
                         android:src="@drawable/ic_star" />
                     <TextView
                         android:layout_weight="1"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4.5"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
-
                         android:textColor="#1C223C"
                         android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/img_favorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_favorite"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp" />
 
 
                 </LinearLayout>
@@ -110,13 +116,8 @@
                         android:textColor="#1C223C"
                         android:textSize="15dp"/>
 
-                    <ImageView
-                        android:id="@+id/img_favorite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_favorite"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp" />
+
+
 
 
 
