@@ -221,17 +221,6 @@ public class FoodList extends AppCompatActivity {
 
                     }
                 });
-//               if (localDB.isFavorites(adapter.getRef(i).getKey())){
-//
-//               }
-//                foodViewHolder.share_img.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Picasso.with(getApplicationContext())
-//                                .load(food.getImage())
-//                                .into(target);
-//                    }
-//                });
                 foodViewHolder.food_share_facebook.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
