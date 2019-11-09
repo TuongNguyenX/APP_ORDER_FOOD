@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.firebase.Common.Common;
+import com.example.firebase.Database.Database;
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Category;
 import com.example.firebase.Model.Food;
@@ -48,7 +49,7 @@ public class FoodList extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
 
     Category category;
-
+    Database localDB;
     ImageView img_food_category;
     TextView txt_food_category;
 
@@ -110,6 +111,9 @@ public class FoodList extends AppCompatActivity {
         });
 
 
+
+        ////
+        localDB = new Database(this);
 
 
         recyclerView = findViewById(R.id.recycler_Food);;
@@ -217,6 +221,9 @@ public class FoodList extends AppCompatActivity {
 
                     }
                 });
+               if (localDB.isFavorites(adapter.getRef(i).getKey())){
+
+               }
 //                foodViewHolder.share_img.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
@@ -238,6 +245,8 @@ public class FoodList extends AppCompatActivity {
             }
         };
         recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false
+        );
         swipeRefreshLayout.setRefreshing(false);
     }
 }
