@@ -50,7 +50,7 @@
                 app:met_textColorHint="#0B8B10"
                 android:inputType="phone"
                 android:maxLines="1"
-                android:hint="Phone"/>
+                android:text="0987654321"/>
 
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -58,7 +58,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText5"
-                android:hint="Password"
+                android:text="1234567890"
                 app:met_floatingLabel="highlight"
                 app:met_textColorHint="#0B8B10"
                 android:maxLines="1"

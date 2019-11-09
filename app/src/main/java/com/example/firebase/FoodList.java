@@ -53,6 +53,9 @@ public class FoodList extends AppCompatActivity {
     ImageView img_food_category;
     TextView txt_food_category;
 
+    /////Database
+
+
     /// Facebook Share
     CallbackManager callbackManager;
     ShareDialog shareDialog;
@@ -198,7 +201,7 @@ public class FoodList extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>
                 (Food.class,R.layout.item_food, FoodViewHolder.class, databaseReference_Food.orderByChild("menuId").equalTo(categoryId)) {
             @Override
-            protected void populateViewHolder(FoodViewHolder foodViewHolder, final Food food, int i) {
+            protected void populateViewHolder(final FoodViewHolder foodViewHolder, final Food food, final int i) {
 
                 foodViewHolder.food_name.setText(food.getName());
                 Picasso.with(getBaseContext())
@@ -209,6 +212,28 @@ public class FoodList extends AppCompatActivity {
                 foodViewHolder.food_price.setText(String.format("$ %s",food.getPrice()));
                 final Food local = food;
 
+                if (localDB.isFavorites(adapter.getRef(i).getKey())){
+                    foodViewHolder.img_favorite.setImageResource(R.drawable.ic_favorite_red);
+                }
+                //////Click change
+                foodViewHolder.img_favorite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (!localDB.isFavorites(adapter.getRef(i).getKey())){
+
+                            localDB.addToFavorites(adapter.getRef(i).getKey());
+                            foodViewHolder.img_favorite.setImageResource(R.drawable.ic_favorite_red);
+                            Toast.makeText(FoodList.this, ""+local.getName()+"da them", Toast.LENGTH_SHORT).show();
+
+                        }else {
+                            localDB.removeFromFavorites(adapter.getRef(i).getKey());
+                            foodViewHolder.img_favorite.setImageResource(R.drawable.ic_favorite_red);
+                            Toast.makeText(FoodList.this, ""+local.getName()+"xoa", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
                 foodViewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
