@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.firebase.GoogleMap.MapsActivity;
+import com.example.firebase.Service.ListenOrder;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -113,6 +114,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        Intent service = new Intent(Home.this, ListenOrder.class);
+        startService(service);
 
         recyler_Other = findViewById(R.id.recycler_Other);
         recyler_Other.setHasFixedSize(true);

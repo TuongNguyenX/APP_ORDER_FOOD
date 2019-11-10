@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.firebase">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -21,7 +22,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Test4"></activity>
+        <service
+            android:name=".Service.ListenOrder"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".Test4" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -58,11 +64,6 @@
             android:name=".CategoryOtherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppCategoryOther" />
-
-        <service
-            android:name=".Service.ListenOrder"
-            android:enabled="true"
-            android:exported="true" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -107,7 +108,7 @@
         <activity
             android:name=".Cart"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeOrder"/>
+            android:theme="@style/AppThemeOrder" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"

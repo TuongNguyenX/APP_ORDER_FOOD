@@ -72,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
         if (Common.isConnectedtoInternet(getBaseContext())) {
-            final ProgressDialog mDialog  = new ProgressDialog(MainActivity.this);
+            final ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
+            mDialog.setTitle("Connecting");
             mDialog.setMessage("Please waiting...");
             mDialog.show();
             table_user.addListenerForSingleValueEvent(new ValueEventListener() {

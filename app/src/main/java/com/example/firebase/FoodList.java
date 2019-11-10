@@ -224,12 +224,12 @@ public class FoodList extends AppCompatActivity {
 
                             localDB.addToFavorites(adapter.getRef(i).getKey());
                             foodViewHolder.img_favorite.setImageResource(R.drawable.ic_favorite_red);
-                            Toast.makeText(FoodList.this, ""+local.getName()+"da them", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(FoodList.this, ""+local.getName()+"da them", Toast.LENGTH_SHORT).show();
 
                         }else {
                             localDB.removeFromFavorites(adapter.getRef(i).getKey());
-                            foodViewHolder.img_favorite.setImageResource(R.drawable.ic_favorite_red);
-                            Toast.makeText(FoodList.this, ""+local.getName()+"xoa", Toast.LENGTH_SHORT).show();
+                            foodViewHolder.img_favorite.setImageResource(R.drawable.ic_favorite);
+//                            Toast.makeText(FoodList.this, ""+local.getName()+"xoa", Toast.LENGTH_SHORT).show();
 
                         }
                     }
