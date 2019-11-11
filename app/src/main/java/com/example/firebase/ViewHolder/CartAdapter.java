@@ -69,6 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
 
     private List<Order> listData = new ArrayList<>();
     private Context context;
+    List<Order> carts = new ArrayList<>();
 
 
     public CartAdapter(List<Order> listData, Context context) {
@@ -87,7 +88,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartViewHold cartViewHold,  final int i) {
+    public void onBindViewHolder(@NonNull final CartViewHold cartViewHold, final int i) {
+
 
 
         Picasso.with(context)
@@ -101,9 +103,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         cartViewHold.img_delete_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(context, "kkk", Toast.LENGTH_SHORT).show();
+                Order order = listData.get(i);
 
-//                deleteCart(.getOrder());
+//                deleteCart();
+
+                Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
+
             }
         });
         /////////////////////////////////////////////////////////////////
@@ -120,5 +125,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
     @Override
     public int getItemCount() {
         return listData.size();//da kiem  tra
+    }
+
+    private void deleteCart(int order) {
+        //// Remove item ai list<Order> by position
+        carts.remove(order);
+        ////After that, delete all old   date from  SQlite
+        new Database(context).cleanCart();
+        /////After final,update new data from List<Order> to SQLite
+        for (Order item:carts)
+            new Database(context).addToCart(item);
+
+
     }
 }

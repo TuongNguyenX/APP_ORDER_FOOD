@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
+import com.example.firebase.Model.Food;
 import com.example.firebase.Model.Order;
 import com.example.firebase.Model.Request;
 import com.example.firebase.ViewHolder.CartAdapter;
@@ -180,6 +181,7 @@ public class Cart extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         if (item.getTitle().equals(Common.DELETE))
             deleteCart(item.getOrder());
+//        Toast.makeText(this, "Xoas roi", Toast.LENGTH_SHORT).show();
         return true;
 
     }

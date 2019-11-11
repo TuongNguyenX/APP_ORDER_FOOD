@@ -39,7 +39,7 @@
 
                     android:layout_marginRight="20dp"
 
-                    android:src="@drawable/profile"
+                    android:src="@drawable/profiles"
                     android:layout_height="30dp"
                     android:id="@+id/profile_image_customer" />
             </LinearLayout>
