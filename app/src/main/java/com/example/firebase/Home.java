@@ -270,6 +270,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             protected void populateViewHolder(MenuViewHolder2 viewHolder, final Category2 model, int position) {
                 viewHolder.txtMenuName2.setText(model.getName());
+                if (position==0){
+                    viewHolder.tv_sale.setBackgroundColor(getResources().getColor(R.color.my_statusbar_color));
+                }
                 viewHolder.tv_sale.setText(model.getSale());
 
 

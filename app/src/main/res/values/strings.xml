@@ -46,4 +46,14 @@
     <string name="title_activity_tracking_order">Map</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="name_profile">Name :-</string>
+    <string name="email_profile">Email :-</string>
+    <string name="password_profile">Password :-</string>
+    <string name="confirm_password_profile">confirm Password :-</string>
+    <string name="phone_profile">Phone :-</string>
+    <string name="image_select">please select image</string>
+    <string name="you_have_not_login">You have not login</string>
+
+
+
 </resources>

@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.Food;
 import com.example.firebase.Model.User;
+import com.example.firebase.ViewHolder.UserViewHolder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,8 +30,9 @@ public class InfoCustomer extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     User user;
-    String key ="";
+//    String key ="";
 
+    FirebaseRecyclerAdapter<User, UserViewHolder> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +43,7 @@ public class InfoCustomer extends AppCompatActivity {
         tv_email = findViewById(R.id.profile_Email_Customer);
         tv_password = findViewById(R.id.profile_Password_Customer);
         floatingActionButton = findViewById(R.id.fab_Edit_Profile);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDiaLog();
-            }
-        });
+
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
@@ -54,7 +52,13 @@ public class InfoCustomer extends AppCompatActivity {
         tv_phone.setText(this.user.getPhone());
         tv_email.setText(this.user.getEmail());
         tv_password.setText(this.user.getPassword());
-
+        
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDiaLog();
+            }
+        });
 
     }
 
@@ -84,7 +88,8 @@ public class InfoCustomer extends AppCompatActivity {
                 user.setEmail(edtEmail.getText().toString());
                 user.setPhone(edtPhone.getText().toString());
                 user.setPassword(edtPassword.getText().toString());
-//                 databaseReference.child(key).setValue(user);
+                databaseReference.child(user.getPhone()).setValue(user);
+
             }
         });
         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {

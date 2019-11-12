@@ -20,6 +20,7 @@ public class MenuViewHolder2 extends RecyclerView.ViewHolder implements
     private ItemClickListener itemClickListener;
 
 
+
     public MenuViewHolder2(@NonNull View itemView) {
         super(itemView);
         tv_sale = itemView.findViewById(R.id.tv_sale);

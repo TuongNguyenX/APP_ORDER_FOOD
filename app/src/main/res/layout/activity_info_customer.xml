@@ -22,7 +22,6 @@
                 android:layout_height="250dp">
                 <androidx.cardview.widget.CardView
                     app:cardCornerRadius="0dp"
-
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -35,9 +34,6 @@
                             android:scaleType="centerCrop"
                             android:layout_height="match_parent"
                             android:layout_width="match_parent"/>
-
-
-
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 

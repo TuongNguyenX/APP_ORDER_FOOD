@@ -182,7 +182,7 @@
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
                                                     android:textStyle="bold"
-                                                    android:text="Buy Now"
+                                                    android:text="Add to Cart"
                                                     android:textColor="#fff"
                                                     android:textSize="18dp" />
                                                 <TextView

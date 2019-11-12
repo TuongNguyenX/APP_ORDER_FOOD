@@ -103,10 +103,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         cartViewHold.img_delete_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Order order = listData.get(i);
-
-//                deleteCart();
-
+                
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 
             }
