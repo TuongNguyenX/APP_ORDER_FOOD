@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.andremion.counterfab.CounterFab;
+import com.example.firebase.Database.Database;
 import com.example.firebase.GoogleMap.MapsActivity;
 import com.example.firebase.Service.ListenOrder;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -81,7 +83,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     FirebaseRecyclerAdapter<CategoryOther, MenuViewHoldOther>adapter_Other;
     EditText edtName;
     FButton btnUpload,btnSelect;
-
+    CounterFab counterFab;
     FirebaseStorage storage;
     StorageReference storageReference;
     Category newcategory;
@@ -108,14 +110,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         setupSlider();
         Paper.init(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle("Home");
-//        setSupportActionBar(toolbar);
+        toolbar.setTitle("Home");
+        setSupportActionBar(toolbar);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        Intent service = new Intent(Home.this, ListenOrder.class);
-        startService(service);
+
 
         recyler_Other = findViewById(R.id.recycler_Other);
         recyler_Other.setHasFixedSize(true);
@@ -133,14 +134,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyler_menu.setLayoutManager(layoutManager);
 
-        CircleImageView imageView = findViewById(R.id.profile_image_customer);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this,InfoCustomer.class);
-                startActivity(intent);
-            }
-        });
+
 
         if (Common.isConnectedtoInternet(getBaseContext())){
             loadMenu();
@@ -149,14 +143,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }else {
             Toast.makeText(this, "Please check your connect", Toast.LENGTH_SHORT).show();
         }
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        CounterFab counterFab =  findViewById(R.id.counterFab_Home);
+        counterFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
              Intent i = new Intent(Home.this,Cart.class);
              startActivity(i);
             }
         });
+        counterFab.setCount(new Database(this).getCountCart());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -179,12 +174,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         txtFullName.setText(Common.currentUser.getName());
 //        txtFullPhone.setText(Common.currentUser.getPhone());
 
-        TextView tv_profile = findViewById(R.id.profile_textview);
-        tv_profile.setText(Common.currentUser.getName());
 
 
 
 
+        Intent service = new Intent(Home.this, ListenOrder.class);
+        startService(service);
 
         //Register Service
 
@@ -192,7 +187,18 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        counterFab.setCount(new Database(this).getCountCart());
+        if (adapter != null){
+            adapter.startListening();
+        }else if (adapter_Sale !=null){
+            adapter_Sale.startListening();
+        }else if (adapter_Other !=null){
+            adapter_Other.startListening();
+        }
+    }
 
     private void loadMenu_Other() {
         adapter_Other = new FirebaseRecyclerAdapter<CategoryOther, MenuViewHoldOther>
@@ -382,7 +388,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
+            Intent intent = new Intent(Home.this,InfoCustomer.class);
+            startActivity(intent);
             return true;
         }
 
@@ -503,7 +510,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
 
-    /// update. delele
 
 
 

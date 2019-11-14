@@ -138,37 +138,18 @@
                                     android:textColor="@color/textView_md"
                                     android:textStyle="bold" />
 
-                                <LinearLayout
-
-                                    android:background="@drawable/button_login_bg"
+                                <RatingBar
                                     android:layout_marginStart="10dp"
+                                    android:id="@+id/ratting_bar_comments"
+                                    style="?android:ratingBarStyleSmall"
+                                    android:layout_toRightOf="@+id/profileImage_comments"
+                                    android:layout_below="@+id/tv_name_comments"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="25dp">
-
-                                    <com.github.ornolfr.ratingview.RatingView
-                                        android:layout_marginStart="5dp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        app:drawable_empty="@drawable/stare"
-                                        app:drawable_filled="@drawable/stare_y"
-                                        app:drawable_half="@drawable/stare_yh"
-                                        app:drawable_margin="1dp"
-                                        app:drawable_size="14dp"
-                                        app:is_indicator="true"
-                                        app:max_count="5" />
-
-                                    <TextView
-
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="10dp"
-                                        android:ellipsize="end"
-                                        android:maxLines="1"
-                                        android:text="(4.5)"
-                                        android:textColor="@color/white" />
-
-                                </LinearLayout>
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:isIndicator="true"
+                                    android:max="5"
+                                    android:rating="0" />
 
                             </LinearLayout>
 
@@ -253,11 +234,11 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
 
+                        android:id="@+id/fab_Cart_SaleDetail"
                         android:clickable="true"
                         app:backgroundTint="#0B8B10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginStart="10dp"
                         android:contentDescription="@string/app_name"
                         android:scaleType="fitXY"

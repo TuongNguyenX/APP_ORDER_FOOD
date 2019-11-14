@@ -102,4 +102,10 @@ public class InfoCustomer extends AppCompatActivity {
 
         alertDialog.show();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }

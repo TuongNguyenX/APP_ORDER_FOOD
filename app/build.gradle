@@ -61,6 +61,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.facebook.android:facebook-share:[4,5)'
     implementation 'com.github.d-max:spots-dialog:0.7@aar'
+    implementation 'com.github.andremion:counterfab:1.0.1'
     ///Slider
     implementation 'com.nineoldandroids:library:2.4.0'
     implementation 'com.daimajia.slider:library:1.1.5@aar'

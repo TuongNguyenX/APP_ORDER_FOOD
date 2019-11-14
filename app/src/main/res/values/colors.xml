@@ -45,4 +45,6 @@
     <color name="textView_hint_profile">#000000</color>
     <color name="textView_profile">#FF929292</color>
     <color name="cast">#979ca0</color>
+
+    <color name="bgRowBackground">#FA315B</color>
 </resources>

@@ -46,13 +46,13 @@ public class SaleDetail extends AppCompatActivity {
         firebaseDatabase =  FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("SaleDetail");
 
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SaleDetail.this,Cart.class);
-//                startActivity(intent);
-//            }
-//        });
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SaleDetail.this,Cart.class);
+                startActivity(intent);
+            }
+        });
         if (getIntent()!= null)
             saleDetailId = getIntent().getStringExtra("SaleDetailId");
 
@@ -117,7 +117,7 @@ public class SaleDetail extends AppCompatActivity {
 
     private void controller() {
         img_Sale_Detail_img = findViewById(R.id.img_Sale_Detail_img);
-//        floatingActionButton = findViewById(R.id.fab_Cart_Sale_Detail);
+        floatingActionButton = findViewById(R.id.fab_Cart_SaleDetail);
         txt_Sale_Detail_Name = findViewById(R.id.txt_Sale_Detail_Name);
         txt_Sale_Detail_Price = findViewById(R.id.txt_Sale_Detail_Price);
         number_Sale_Detail = findViewById(R.id.number_Sale_Detail);

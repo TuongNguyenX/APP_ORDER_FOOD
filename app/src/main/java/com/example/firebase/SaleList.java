@@ -53,7 +53,7 @@ public class SaleList extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("SaleDetail");
-        databaseReference_Sale = firebaseDatabase.getReference("Sale");
+
 
         if (getIntent() != null) {
             saleId = getIntent().getStringExtra("SaleId");
@@ -61,8 +61,6 @@ public class SaleList extends AppCompatActivity {
         if (!saleId.isEmpty() && saleId!= null){
             if (Common.isConnectedtoInternet(getBaseContext())) {
                 loadListSaleDetail(saleId);
-
-
             }
             else {
                 Toast.makeText(getBaseContext(), "Please check your connection", Toast.LENGTH_SHORT).show();
@@ -99,6 +97,7 @@ public class SaleList extends AppCompatActivity {
 
         };
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
     }
 

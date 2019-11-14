@@ -27,44 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-class CartViewHold extends RecyclerView.ViewHolder implements
-        View.OnClickListener, View.OnCreateContextMenuListener {
 
-    public TextView txt_car_name,txt_price;
-    public ImageView img_cart_count,img_delete_cart,img_info;
-    public ElegantNumberButton btn_quantity;
-    private ItemClickListener itemClickListener;
-
-    public void setTxt_car_name(TextView txt_car_name) {
-        this.txt_car_name = txt_car_name;
-    }
-
-    public CartViewHold(@NonNull View itemView) {
-        super(itemView);
-        img_info = itemView.findViewById(R.id.img_infocart);
-        img_delete_cart = itemView.findViewById(R.id.delete_cart);
-        txt_car_name = itemView.findViewById(R.id.cart_item_name);
-        txt_price = itemView.findViewById(R.id.cart_item_price);
-        img_cart_count =itemView.findViewById(R.id.cart_item_count);
-
-        itemView.setOnCreateContextMenuListener(this);
-
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        ///
-        menu.setHeaderTitle("Select ation");
-        menu.add(0,0,getAdapterPosition(), Common.DELETE);
-
-    }
-}
 public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
 
     private List<Order> listData = new ArrayList<>();
@@ -105,6 +68,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
             public void onClick(View v) {
 
                 Order order = listData.get(i);
+
+
+
+
                 
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 

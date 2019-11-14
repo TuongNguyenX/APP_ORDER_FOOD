@@ -20,6 +20,7 @@ import com.example.firebase.Database.Database;
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Category;
 import com.example.firebase.Model.Food;
+import com.example.firebase.Model.Order;
 import com.example.firebase.ViewHolder.FoodViewHolder;
 import com.facebook.CallbackManager;
 import com.facebook.share.model.SharePhoto;
@@ -252,6 +253,22 @@ public class FoodList extends AppCompatActivity {
                         Picasso.with(getApplicationContext())
                                 .load(food.getImage())
                                 .into(target);
+                    }
+                });
+                foodViewHolder.img_buy_cart_food.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new Database(getBaseContext()).addToCart(new Order(
+                                adapter.getRef(i).getKey(),
+                                food.getName(),
+                                "1",
+                                food.getPrice(),
+                                food.getDiscount(),
+                                food.getImage()
+
+                        ));
+                        Toast.makeText(FoodList.this, "Add to Cart", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 

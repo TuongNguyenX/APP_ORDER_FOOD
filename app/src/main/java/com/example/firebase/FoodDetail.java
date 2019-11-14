@@ -12,10 +12,12 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andremion.counterfab.CounterFab;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
 import com.example.firebase.Model.Cars;
+import com.example.firebase.Model.CategoryOther;
 import com.example.firebase.Model.Food;
 import com.example.firebase.Model.Order;
 import com.example.firebase.Model.Rating;
@@ -40,12 +42,14 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
     TextView tv_name,tv_price,tv_description;
     ImageView food_image,img_feedback;
     CollapsingToolbarLayout collapsingToolbarLayout;
-    FloatingActionButton floatingActionButton_Cart;
+    CounterFab counterFab_Cart;
     ElegantNumberButton numberButton;
-    String foodId = "";
+    String foodId = null;
+    String categoryId = null;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference,databaseReference_CategoryId;
     Food currentFood;
+    CategoryOther current_CategoryOther;
     Button button_buy;
     DatabaseReference ratingTb1;
     RatingBar ratingBar;
@@ -55,20 +59,17 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
-
         tv_name = findViewById(R.id.txt_Food_Detail_Name);
         tv_price = findViewById(R.id.txt_Food_Detail_Price);
         tv_description = findViewById(R.id.txt_Food_Detail_Des);
         food_image = findViewById(R.id.img_Food_Detail_img);
         img_feedback = findViewById(R.id.image_feelback_other);
-
         button_buy = findViewById(R.id.button_buy_Food_Detail);
         numberButton = findViewById(R.id.number_Food_Detail);
-
-        floatingActionButton_Cart = findViewById(R.id.fab_Cart);
-
+        counterFab_Cart = findViewById(R.id.fab_Cart);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Food");
+        databaseReference_CategoryId = firebaseDatabase.getReference("CategoryOther");
         ratingTb1 = firebaseDatabase.getReference("Rating");
         img_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,20 +78,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
             }
         });
         ratingBar = findViewById(R.id.ratingFood);
-        ///get car id from intent
-        if (getIntent()!= null)
-            foodId = getIntent().getStringExtra("FoodId");
-
-        if (!foodId.isEmpty() && foodId!= null ){
-            if (Common.isConnectedtoInternet(getBaseContext())) {
-                loadFoodDetail(foodId);
-                getRatingFood(foodId);
-            }
-            else {
-                Toast.makeText(this, "Please check your connection", Toast.LENGTH_SHORT).show();
-            }
-        }
-        floatingActionButton_Cart.setOnClickListener(new View.OnClickListener() {
+        counterFab_Cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(FoodDetail.this,Cart.class);
@@ -111,18 +99,87 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
                 Toast.makeText(FoodDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
-
-
+//
+        counterFab_Cart.setCount(new Database(this).getCountCart());
         TextView tv_feedback_name = findViewById(R.id.tv_feedback_name_food_detail);
         TextView tv_feedback_phone = findViewById(R.id.tv_feedback_phone_food_detail);
         TextView tv_feedback_email = findViewById(R.id.tv_feedback_email_food_detail);
-
-
         tv_feedback_name.setText(Common.currentUser.getName());
         tv_feedback_phone.setText(Common.currentUser.getPhone());
         tv_feedback_email.setText(Common.currentUser.getEmail());
 
 
+        ///get car id from intent
+        if (getIntent()!= null)
+            foodId = getIntent().getStringExtra("FoodId");
+
+        if (foodId!= null && !foodId.isEmpty()){
+            if (Common.isConnectedtoInternet(getBaseContext())) {
+                loadFoodDetail(foodId);
+                getRatingFood(foodId);
+            }
+            else {
+                Toast.makeText(this, "Please check your connection", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (getIntent()!= null)
+            categoryId = getIntent().getStringExtra("CategoryOtherId");
+
+        if (categoryId!= null && !categoryId.isEmpty()){
+            if (Common.isConnectedtoInternet(getBaseContext())) {
+                loadFoodCategoryId(categoryId);
+//                getRatingFood(categoryId);
+            }
+            else {
+                Toast.makeText(this, "Please check your connection", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+    }
+
+
+
+    private void loadFoodDetail(String foodId) {
+        databaseReference.child(foodId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentFood = dataSnapshot.getValue(Food.class);
+                Picasso.with(getBaseContext()).load(currentFood.getImage())
+                        .placeholder(R.drawable.imgerror)
+                        .error(R.drawable.imgerror)
+                        .into(food_image);
+                tv_price.setText(currentFood.getPrice());
+                tv_name.setText(currentFood.getName());
+                tv_description.setText(currentFood.getDescription());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void loadFoodCategoryId(String categoryId) {
+        databaseReference_CategoryId.child(categoryId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                current_CategoryOther = dataSnapshot.getValue(CategoryOther.class);
+                Picasso.with(getBaseContext()).load(current_CategoryOther.getImage())
+                        .placeholder(R.drawable.imgerror)
+                        .error(R.drawable.error)
+                        .into(food_image);
+                tv_price.setText(current_CategoryOther.getPrice());
+                tv_name.setText(current_CategoryOther.getName());
+                tv_description.setText(current_CategoryOther.getDescription());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void getRatingFood(String foodId) {
@@ -164,26 +221,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
 
     }
 
-    private void loadFoodDetail(String foodId) {
-        databaseReference.child(foodId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                currentFood = dataSnapshot.getValue(Food.class);
-                Picasso.with(getBaseContext()).load(currentFood.getImage())
-                        .placeholder(R.drawable.imgerror)
-                        .error(R.drawable.imgerror)
-                        .into(food_image);
-                tv_price.setText(currentFood.getPrice());
-                tv_name.setText(currentFood.getName());
-                tv_description.setText(currentFood.getDescription());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
     //// Feed back ////
     private void showRatingDialog() {
         new AppRatingDialog.Builder()

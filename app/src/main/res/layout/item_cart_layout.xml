@@ -6,7 +6,37 @@
     android:layout_margin="12dp"
     android:elevation="8dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:background="@color/bgRowBackground"
+        android:id="@+id/view_Background">
+
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:src="@drawable/ic_star"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Delelte"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="13dp"
+            android:layout_toRightOf="@+id/delete_icon"
+            />
+
+    </RelativeLayout>
     <LinearLayout
+        android:id="@+id/view_foreground"
+        android:background="@android:color/white"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
