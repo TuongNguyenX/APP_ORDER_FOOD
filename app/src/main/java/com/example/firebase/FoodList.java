@@ -276,8 +276,7 @@ public class FoodList extends AppCompatActivity {
             }
         };
         recyclerView.setAdapter(adapter);
-        recyclerView.setNestedScrollingEnabled(false
-        );
+        recyclerView.setNestedScrollingEnabled(false);
         swipeRefreshLayout.setRefreshing(false);
     }
 }

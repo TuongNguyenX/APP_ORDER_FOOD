@@ -48,18 +48,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView =inflater.inflate(R.layout.item_cart_layout,viewGroup,false);
         return new CartViewHold(itemView);
+
+
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull final CartViewHold cartViewHold, final int i) {
 
-
-
         Picasso.with(context)
                 .load(listData.get(i).getImage())
                 .into(cartViewHold.img_info);
-
-
         TextDrawable drawable = TextDrawable.builder()
                 .buildRound(""+listData.get(i).getQuantity(), Color.RED);//da kiem tra
         cartViewHold.img_cart_count.setImageDrawable(drawable);//da kiem tra
@@ -71,8 +70,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
 
 
 
-
-                
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 
             }
@@ -88,12 +85,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
 
     }
 
+
     @Override
     public int getItemCount() {
-        return listData.size();//da kiem  tra
+        return listData.size();
     }
 
-    private void deleteCart(int order) {
+    private void deleteCart(String order) {
         //// Remove item ai list<Order> by position
         carts.remove(order);
         ////After that, delete all old   date from  SQlite
@@ -101,7 +99,5 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         /////After final,update new data from List<Order> to SQLite
         for (Order item:carts)
             new Database(context).addToCart(item);
-
-
     }
 }

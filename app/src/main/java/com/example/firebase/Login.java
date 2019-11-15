@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
     private String phone,name,password;
     TextView tv_title;
     ImageButton btRegister;
-        private TextView tvLogin;
+    private TextView tvLogin;
     String validUser = "[a-zA-Z0-9][a-zA-Z0-9\\-]{3,50}";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,6 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Please Enter Your Password!", Toast.LENGTH_SHORT).show();
                         return;
                     }
-
                     table_user.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
