@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void login(final String phone, final String pwd) {
     //copu code from register class
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
         if (Common.isConnectedtoInternet(getBaseContext())) {

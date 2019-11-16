@@ -82,7 +82,7 @@
             android:layout_height="wrap_content">
             <Button
                 android:textStyle="bold"
-                android:textColor="#0B8B10"
+                android:textColor="@android:color/black"
                 android:id="@+id/bt_dangnhapne"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
