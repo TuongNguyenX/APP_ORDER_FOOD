@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
     TextView tv_title;
     ImageButton btRegister;
     private TextView tvLogin;
-    String validUser = "[a-zA-Z0-9][a-zA-Z0-9\\-]{3,50}";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

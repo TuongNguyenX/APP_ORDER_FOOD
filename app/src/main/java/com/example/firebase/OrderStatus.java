@@ -95,6 +95,7 @@ public class OrderStatus extends AppCompatActivity {
                 viewHolder.txtOrderName.setText(model.getName());
                 viewHolder.txtOrderEmail.setText(model.getEmail());
                 viewHolder.txtOrderTotal.setText(model.getTotal());
+                viewHolder.txtOrderComments.setText(model.getComments());
                 viewHolder.txtOrderDate.setText(Common.getDate(Long.parseLong(adapter.getRef(position).getKey())));
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override

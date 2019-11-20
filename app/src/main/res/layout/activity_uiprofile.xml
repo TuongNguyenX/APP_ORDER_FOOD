@@ -308,6 +308,26 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="15dp"
                                     android:text="Edit Public Detail" />
+                                <RelativeLayout
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginEnd="12dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp">
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_centerVertical="true"
+                                        android:background="@color/view_md" />
+
+                                    <View
+                                        android:layout_width="60dp"
+                                        android:layout_height="2dp"
+                                        android:layout_centerVertical="true"
+                                        android:background="#FF1718" />
+
+                                </RelativeLayout>
 
                                 <LinearLayout
                                     android:layout_marginTop="20dp"

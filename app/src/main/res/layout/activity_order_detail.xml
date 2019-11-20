@@ -16,29 +16,11 @@
         android:layout_margin="12dp"
         app:cardElevation="4dp"
         android:background="#FFF"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="6dp"
         android:scrollbars="vertical"
         android:elevation="20dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <View
-                android:layout_width="5.2dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:background="#0B8B10" />
-
-            <View
-                android:layout_width="5.2dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:background="#0B8B10" />
-
-
-
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -249,7 +231,7 @@
                 android:layout_toEndOf="@+id/view_latest"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Các sản phẩm khuyến mãi"
+                android:text="Danh sách sản phẩm "
                 android:textColor="#313131"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -268,6 +250,7 @@
 
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lstFoods"/>

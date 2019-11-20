@@ -29,7 +29,8 @@ public class Database extends SQLiteAssetHelper {
         final List<Order> result = new ArrayList<>();
         if (c.moveToFirst()){
             do {
-                result.add(new Order(c.getString(c.getColumnIndex("ProductId")),
+                result.add(new Order(
+                        c.getString(c.getColumnIndex("ProductId")),
                         c.getString(c.getColumnIndex("ProductName")),
                         c.getString(c.getColumnIndex("Quantity")),
                         c.getString(c.getColumnIndex("Price")),
