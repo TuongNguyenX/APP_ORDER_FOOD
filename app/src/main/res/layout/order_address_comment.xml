@@ -96,12 +96,18 @@
                     android:hint="Comments"
 
                     android:textSize="16sp" />
+
             </LinearLayout>
 
 
 
 
 
+            <RadioButton
+                android:id="@+id/radioButtonAddressHome"
+                android:layout_width="match_parent"
+                android:text="Add a address"
+                android:layout_height="wrap_content"/>
 
 
 

@@ -38,7 +38,7 @@ public class CartViewHold extends RecyclerView.ViewHolder implements
         txt_car_name = itemView.findViewById(R.id.cart_item_name);
         txt_price = itemView.findViewById(R.id.cart_item_price);
         img_cart_count =itemView.findViewById(R.id.cart_item_count);
-        view_background = itemView.findViewById(R.id.view_Background);
+
         view_foreground = itemView.findViewById(R.id.view_foreground);
         itemView.setOnCreateContextMenuListener(this);
 

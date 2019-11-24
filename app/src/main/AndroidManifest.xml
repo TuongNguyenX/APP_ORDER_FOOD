@@ -134,9 +134,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

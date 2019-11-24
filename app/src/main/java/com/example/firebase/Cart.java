@@ -14,8 +14,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -104,6 +106,15 @@ public class Cart extends AppCompatActivity {
         View order_address_comments = inflater.inflate(R.layout.order_address_comment,null);
         final EditText edtAddress = order_address_comments.findViewById(R.id.edtAddress);
         final EditText edtComment = order_address_comments.findViewById(R.id.edtComment);
+        final RadioButton radioButtonAddressHome = order_address_comments.findViewById(R.id.radioButtonAddressHome);
+
+        radioButtonAddressHome.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+
 
 //
         //////////////

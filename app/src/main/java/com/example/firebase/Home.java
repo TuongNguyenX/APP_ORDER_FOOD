@@ -3,6 +3,7 @@ package com.example.firebase;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.andremion.counterfab.CounterFab;
 import com.example.firebase.Database.Database;
 import com.example.firebase.GoogleMap.MapsActivity;
+import com.example.firebase.Model.Request;
 import com.example.firebase.Service.ListenOrder;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +21,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
@@ -65,6 +69,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -240,6 +245,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 (Category.class,R.layout.menu_item, MenuViewHold.class, category) {
             @Override
             protected void populateViewHolder(MenuViewHold viewHolder, Category model, int position) {
+
+
+                Random rnd = new Random();
+                int currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                viewHolder.txtMenuName.setBackgroundColor(currentColor);
                 viewHolder.txtMenuName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .placeholder(R.drawable.imgerror)
@@ -425,6 +435,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             Intent infoCustomer = new Intent(Home.this, InfoCustomer.class);
             startActivity(infoCustomer);
         }
+        else if(id == R.id.nav_AddressHome){
+
+            showDiaLogAddressHome();
+        }
         else if (id == R.id.nav_team) {
             Intent team = new Intent(Home.this,MyTeam.class);
             startActivity(team);
@@ -442,6 +456,44 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showDiaLogAddressHome() {
+        AlertDialog.Builder alerdialog = new AlertDialog.Builder(Home.this);
+        alerdialog.setTitle("Add Address For User");
+        alerdialog.setMessage("Info");
+        LayoutInflater  inflater  = this.getLayoutInflater();
+        final View addressHome = inflater.inflate(R.layout.dialog_address_home,null);
+        final EditText edtAddressHome = addressHome.findViewById(R.id.edtAddressHome);
+        alerdialog.setView(addressHome);
+        alerdialog.setIcon(R.drawable.ic_cart_black);
+        alerdialog.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Common.currentUser.setHomeAddress(edtAddressHome.getText().toString());
+
+                FirebaseDatabase.getInstance().getReference("User")
+                        .child(Common.currentUser.getPhone())
+                        .setValue(Common.currentUser)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(Home.this, "Add Address Successful", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+            }
+        });
+        alerdialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+            }
+        });
+
+        alerdialog.show();
     }
 
     private void showDialongChangePassword() {

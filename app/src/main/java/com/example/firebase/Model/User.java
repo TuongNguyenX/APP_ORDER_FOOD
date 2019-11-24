@@ -6,6 +6,7 @@ public class User {
     private String Phone;
     private String Email;
     private String IsStaff;
+    private String HomeAddress;
 //
 
     public User() {
@@ -18,6 +19,14 @@ public class User {
         Email = email;
         IsStaff = "false";
 
+    }
+
+    public String getHomeAddress() {
+        return HomeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        HomeAddress = homeAddress;
     }
 
     public String getIsStaff() {
