@@ -28,7 +28,6 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Test4" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -96,7 +95,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUIProfile" />
         <activity android:name=".TestEmpty" />
-        <activity android:name=".Test2" />
         <activity
             android:name=".MyTeam"
             android:screenOrientation="portrait"
