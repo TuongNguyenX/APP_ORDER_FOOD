@@ -99,9 +99,7 @@ public class Cart extends AppCompatActivity {
         AlertDialog.Builder alerdialog = new AlertDialog.Builder(Cart.this);
         alerdialog.setTitle("One more step !");
         alerdialog.setMessage("Enter your address :): ");
-
         ///////////////
-
         LayoutInflater  inflater  = this.getLayoutInflater();
         View order_address_comments = inflater.inflate(R.layout.order_address_comment,null);
         final EditText edtAddress = order_address_comments.findViewById(R.id.edtAddress);
@@ -111,15 +109,11 @@ public class Cart extends AppCompatActivity {
         radioButtonAddressHome.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
             }
         });
-
-
 //
         //////////////
 //
-
         alerdialog.setView(order_address_comments);
         alerdialog.setIcon(R.drawable.ic_cart_black);
         alerdialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

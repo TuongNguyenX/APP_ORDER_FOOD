@@ -106,6 +106,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         ///init Firebase
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
+
         database_CategoryOther = FirebaseDatabase.getInstance();
         databaseReference_CategoryOther = database_CategoryOther.getReference("CategoryOther");
         database_Sale = FirebaseDatabase.getInstance();
