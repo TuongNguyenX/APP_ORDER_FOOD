@@ -50,9 +50,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView =inflater.inflate(R.layout.item_cart_layout,viewGroup,false);
         return new CartViewHold(itemView);
-
-
-
     }
 
     @Override
@@ -67,27 +64,19 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         cartViewHold.img_delete_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Order order = listData.get(i);
-
-
-
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 
             }
         });
         /////////////////////////////////////////////////////////////////
-
         Locale locale = new Locale("vi","VN");
         NumberFormat numberFormat =NumberFormat.getCurrencyInstance(locale);//
         int price =(Integer.parseInt(listData.get(i).getPrice()))*(Integer.parseInt(listData.get(i).getQuantity()));
         cartViewHold.txt_price.setText(numberFormat.format(price));//d
         cartViewHold.txt_car_name.setText(listData.get(i).getProductName());//
 
-
     }
-
-
     @Override
     public int getItemCount() {
         return listData.size();
