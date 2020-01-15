@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
@@ -248,9 +250,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             protected void populateViewHolder(MenuViewHold viewHolder, Category model, int position) {
 
 
-                Random rnd = new Random();
-                int currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                viewHolder.txtMenuName.setBackgroundColor(currentColor);
+//                Random rnd = new Random();
+//                int currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+//                viewHolder.txtMenuName.setBackgroundColor(currentColor);
                 viewHolder.txtMenuName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .placeholder(R.drawable.imgerror)
@@ -287,18 +289,29 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             protected void populateViewHolder(MenuViewHolder2 viewHolder, final Category2 model, int position) {
                 viewHolder.txtMenuName2.setText(model.getName());
-                if (position==0){
-                    viewHolder.tv_sale.setBackgroundColor(getResources().getColor(R.color.my_statusbar_color));
-                }
+//                if (position==0){
+//                    viewHolder.tv_sale.setBackgroundColor(getResources().getColor(R.color.my_statusbar_color));
+//                }
                 viewHolder.tv_sale.setText(model.getSale());
-
 
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .placeholder(R.drawable.imgerror)
                         .error(R.drawable.error)
                         .into(viewHolder.imgMenuImage2);
 
-
+                try {
+                    // Initialize a new GradientDrawable
+                    GradientDrawable gd = new GradientDrawable();
+                    // Specify the shape of drawable
+                    gd.setShape(GradientDrawable.RECTANGLE);
+                    // Set the fill colors of drawable
+                    gd.setColor(Color.parseColor(model.getSale()));
+                    // Make the border rounded
+                    gd.setCornerRadii(new float[]{0, 0, 40.0f, 40.0f, 40.0f, 40.0f, 0, 0}); // border corner radius
+                    viewHolder.tv_sale.setBackground(gd);
+                } catch (Exception e) {
+                    Log.d("error_show", e.toString());
+                }
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override

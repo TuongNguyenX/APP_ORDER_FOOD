@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +68,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
             @Override
             public void onClick(View v) {
                 Order order = listData.get(i);
+
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 
             }
@@ -75,6 +79,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         int price =(Integer.parseInt(listData.get(i).getPrice()))*(Integer.parseInt(listData.get(i).getQuantity()));
         cartViewHold.txt_price.setText(numberFormat.format(price));//d
         cartViewHold.txt_car_name.setText(listData.get(i).getProductName());//
+
+//
+//        try {
+//            // Initialize a new GradientDrawable
+//            GradientDrawable gd = new GradientDrawable();
+//            // Specify the shape of drawable
+//            gd.setShape(GradientDrawable.RECTANGLE);
+//            // Set the fill colors of drawable
+//            gd.setColor(Color.parseColor(listData.get(i).getProductName()));
+//            // Make the border rounded
+//            gd.setCornerRadii(new float[]{0, 0, 40.0f, 40.0f, 40.0f, 40.0f, 0, 0}); // border corner radius
+//            cartViewHold.txt_car_name.setBackground(gd);
+//        } catch (Exception e) {
+//            Log.d("error_show", e.toString());
+//        }
 
     }
     @Override

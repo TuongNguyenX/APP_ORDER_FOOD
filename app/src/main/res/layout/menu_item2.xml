@@ -61,19 +61,24 @@
                     app:drawable_size="8dp"
                     app:is_indicator="true"
                     app:max_count="5" />
-
-                <TextView
-
-                    android:id="@+id/tv_sale"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="2dp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="ssssssssss"
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
+
+                    >
+                    <TextView
+                        android:id="@+id/tv_sale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="ssssssssss"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
 
             </LinearLayout>
 
