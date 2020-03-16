@@ -180,7 +180,6 @@ public class Cart extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         if (item.getTitle().equals(Common.DELETE))
             deleteCart(item.getOrder());
-//        Toast.makeText(this, "Xoas roi", Toast.LENGTH_SHORT).show();
         return true;
 
     }

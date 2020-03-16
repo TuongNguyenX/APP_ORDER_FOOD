@@ -71,6 +71,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
 
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 
+
             }
         });
         /////////////////////////////////////////////////////////////////
@@ -101,7 +102,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         return listData.size();
     }
 
-    private void deleteCart(String order) {
+    private void deleteCart(int order) {
         //// Remove item ai list<Order> by position
         carts.remove(order);
         ////After that, delete all old   date from  SQlite
@@ -109,5 +110,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         /////After final,update new data from List<Order> to SQLite
         for (Order item:carts)
             new Database(context).addToCart(item);
+//        loadListCart();
+
     }
 }
