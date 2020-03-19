@@ -52,6 +52,7 @@ public class OrderStatus extends AppCompatActivity {
 
 
             loadOrders(Common.currentUser.getPhone());
+
     }
 
     private void toolBarOfOrder() {

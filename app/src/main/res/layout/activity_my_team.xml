@@ -16,8 +16,8 @@
         app:popupTheme="@style/AppTheme.PopupOverlay" />
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#E0E0E0"/>
+        android:layout_height="5dp"
+        android:background="@drawable/toolbar_dropshadow"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_team"

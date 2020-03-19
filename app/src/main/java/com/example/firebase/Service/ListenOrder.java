@@ -30,8 +30,8 @@ public class ListenOrder extends Service implements ChildEventListener {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+
+        return null;
     }
     @Override
     public void onCreate() {
@@ -60,6 +60,10 @@ public class ListenOrder extends Service implements ChildEventListener {
     }
 
     private void showNotification(String key, Request request) {
+
+        int NOTIFICATION_ID = 234;
+
+
         Intent intent = new Intent(getBaseContext(), OrderStatus.class);
         intent.putExtra("userPhone",request.getPhone());//////////
         PendingIntent contentIntent = PendingIntent.getActivity(getBaseContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);

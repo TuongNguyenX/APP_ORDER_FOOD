@@ -10,15 +10,15 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_order"
         android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:background="@android:color/white"
-        app:titleTextColor="@color/black"
-        android:layout_height="wrap_content">
+        android:theme="@style/ToolbarColoredBackArrow"
+        app:titleTextColor="@android:color/black"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        >
 
     </androidx.appcompat.widget.Toolbar>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#E0E0E0"/>
+
 
 
 
