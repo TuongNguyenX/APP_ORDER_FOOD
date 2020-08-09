@@ -14,7 +14,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.Request;
-import com.example.firebase.OrderStatus;
+import com.example.firebase.Activity.OrderStatus;
 import com.example.firebase.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;

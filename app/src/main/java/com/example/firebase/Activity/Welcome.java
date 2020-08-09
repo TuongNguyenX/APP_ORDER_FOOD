@@ -1,4 +1,4 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.example.firebase.R;
 
 public class Welcome extends AppCompatActivity {
     private static  int SPLASH_SCREEN = 5000;

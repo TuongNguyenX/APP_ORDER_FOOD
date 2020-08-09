@@ -1,4 +1,4 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.firebase.R;
 
 public class TestEmpty extends AppCompatActivity {
 

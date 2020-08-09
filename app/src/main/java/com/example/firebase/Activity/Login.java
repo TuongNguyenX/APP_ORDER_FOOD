@@ -1,4 +1,4 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import android.content.Intent;
 
@@ -12,12 +12,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.User;
+import com.example.firebase.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

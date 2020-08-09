@@ -1,4 +1,4 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.firebase.Common.Common;
+import com.example.firebase.R;
 import com.example.firebase.ViewHolder.OrderDetailAdapter;
 
 public class OrderDetail extends AppCompatActivity {

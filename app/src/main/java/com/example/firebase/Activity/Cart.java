@@ -1,39 +1,40 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
-import com.example.firebase.Model.Food;
 import com.example.firebase.Model.Order;
 import com.example.firebase.Model.Request;
+import com.example.firebase.R;
 import com.example.firebase.ViewHolder.CartAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Cart extends AppCompatActivity {
@@ -61,6 +62,7 @@ public class Cart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        setToolBar();
 
 
         database = FirebaseDatabase.getInstance();
@@ -95,6 +97,20 @@ public class Cart extends AppCompatActivity {
 
         loadListCart();
     }
+
+    private void setToolBar() {
+        Toolbar toolbar = findViewById(R.id.toolbarCart);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
     private void showAlertDialog() {
         AlertDialog.Builder alerdialog = new AlertDialog.Builder(Cart.this);
         alerdialog.setTitle("One more step !");
@@ -154,7 +170,7 @@ public class Cart extends AppCompatActivity {
 
     }
 
-    private void loadListCart() {
+    public void loadListCart() {
 
         carts = new Database(this).getCarts();
         adapter= new CartAdapter(carts,this);

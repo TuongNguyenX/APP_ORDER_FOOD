@@ -3,11 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
     android:id="@+id/swipe_layout"
-    tools:context=".Cart">
+    tools:context=".Activity.Cart">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCart"
+        app:title="Cart"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        android:theme="@style/ToolbarColoredBackArrow"
+        app:titleTextColor="@android:color/black"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

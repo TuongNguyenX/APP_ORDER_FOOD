@@ -22,8 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tuimoitaone"></activity>
-        <activity android:name=".OrderDetail" />
+        <activity android:name=".Activity.Tuimoitaone"></activity>
+        <activity android:name=".Activity.OrderDetail" />
 
         <service
             android:name=".Service.ListenOrder"
@@ -44,25 +44,25 @@
         <activity
             android:name=".GoogleMap.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".InfoCustomer" />
+        <activity android:name=".Activity.InfoCustomer" />
         <activity
-            android:name=".SaleDetail"
+            android:name=".Activity.SaleDetail"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Uiprofile_Detail"
+            android:name=".Activity.Uiprofile_Detail"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaleList"
+            android:name=".Activity.SaleList"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FoodDetail"
+            android:name=".Activity.FoodDetail"
             android:screenOrientation="portrait"
             android:theme="@style/AppCategoryOther" />
         <activity
-            android:name=".FoodList"
+            android:name=".Activity.FoodList"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CategoryOtherActivity"
+            android:name=".Activity.CategoryOtherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppCategoryOther" />
 
@@ -84,7 +84,7 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <activity
-            android:name=".Welcome"
+            android:name=".Activity.Welcome"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin">
 
@@ -97,44 +97,44 @@
 
         </activity>
         <activity
-            android:name=".EditUIProfile"
+            android:name=".Activity.EditUIProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
         <activity
-            android:name=".UIProfile"
+            android:name=".Activity.UIProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUIProfile" />
-        <activity android:name=".TestEmpty" />
+        <activity android:name=".Activity.TestEmpty" />
         <activity
-            android:name=".MyTeam"
+            android:name=".Activity.MyTeam"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
-        <activity android:name=".Test" />
+        <activity android:name=".Activity.Test" />
         <activity
-            android:name=".OrderStatus"
+            android:name=".Activity.OrderStatus"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeOrder" />
         <activity
-            android:name=".Cart"
+            android:name=".Activity.Cart"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeOrder" />
         <activity
-            android:name=".Home"
+            android:name=".Activity.Home"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Register"
+            android:name=".Activity.Register"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin">
 
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Activity.Login"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin" />
 

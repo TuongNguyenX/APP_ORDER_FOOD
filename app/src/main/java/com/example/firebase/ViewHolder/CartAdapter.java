@@ -2,25 +2,17 @@ package com.example.firebase.ViewHolder;
 
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.amulyakhare.textdrawable.TextDrawable;
-import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
-import com.example.firebase.Cart;
-import com.example.firebase.Common.Common;
+import com.example.firebase.Activity.Cart;
 import com.example.firebase.Database.Database;
-import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Order;
 import com.example.firebase.R;
 import com.squareup.picasso.Picasso;
@@ -37,14 +29,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
     private Context context;
 
 
-    List<Order> carts = new ArrayList<>();
-
 
     public CartAdapter(List<Order> listData, Context context) {
         this.listData = listData;
         this.context = context;
 
     }
+
+
 
     @NonNull
     @Override
@@ -68,6 +60,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
             @Override
             public void onClick(View v) {
                 Order order = listData.get(i);
+                listData.remove(order);
+                 new Database(context).cleanCart();
+                for (Order item:listData)
+                    new Database(context).addToCart(item);
+                ((Cart)context).loadListCart();
+
 
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
 
@@ -102,15 +100,5 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
         return listData.size();
     }
 
-    private void deleteCart(int order) {
-        //// Remove item ai list<Order> by position
-        carts.remove(order);
-        ////After that, delete all old   date from  SQlite
-        new Database(context).cleanCart();
-        /////After final,update new data from List<Order> to SQLite
-        for (Order item:carts)
-            new Database(context).addToCart(item);
-//        loadListCart();
 
-    }
 }

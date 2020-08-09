@@ -38,6 +38,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Khám phá danh mục"
+                            android:textColor="#313131"
                             android:textSize="16dp"
                             android:textStyle="bold"/>
 

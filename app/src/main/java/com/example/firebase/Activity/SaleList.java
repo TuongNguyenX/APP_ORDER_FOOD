@@ -1,4 +1,4 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Sale;
+import com.example.firebase.R;
 import com.example.firebase.ViewHolder.SaleDetailViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

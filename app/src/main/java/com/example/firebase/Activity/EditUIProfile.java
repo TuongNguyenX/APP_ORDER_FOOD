@@ -1,10 +1,12 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.firebase.R;
 
 public class EditUIProfile extends AppCompatActivity {
     ImageView img_avatar,img_anhbia;

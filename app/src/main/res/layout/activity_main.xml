@@ -8,7 +8,7 @@
     android:background="#fff"
 
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <LinearLayout
         android:gravity="center"

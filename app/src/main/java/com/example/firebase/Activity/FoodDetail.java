@@ -1,7 +1,4 @@
-package com.example.firebase;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.firebase.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,17 +9,19 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.andremion.counterfab.CounterFab;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
-import com.example.firebase.Model.Cars;
 import com.example.firebase.Model.CategoryOther;
 import com.example.firebase.Model.Food;
 import com.example.firebase.Model.Order;
 import com.example.firebase.Model.Rating;
+import com.example.firebase.R;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -96,6 +95,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
                         currentFood.getDiscount(),
                         currentFood.getImage()
                 ));
+                finish();
                 Toast.makeText(FoodDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });

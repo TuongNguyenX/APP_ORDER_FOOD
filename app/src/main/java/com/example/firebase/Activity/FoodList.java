@@ -1,4 +1,4 @@
-package com.example.firebase;
+package com.example.firebase.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +21,7 @@ import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Category;
 import com.example.firebase.Model.Food;
 import com.example.firebase.Model.Order;
+import com.example.firebase.R;
 import com.example.firebase.ViewHolder.FoodViewHolder;
 import com.facebook.CallbackManager;
 import com.facebook.share.model.SharePhoto;
