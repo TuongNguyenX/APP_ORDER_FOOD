@@ -61,13 +61,36 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHold> {
             public void onClick(View v) {
                 Order order = listData.get(i);
                 listData.remove(order);
-                 new Database(context).cleanCart();
+                new Database(context).cleanCart();
                 for (Order item:listData)
                     new Database(context).addToCart(item);
                 ((Cart)context).loadListCart();
-
-
                 Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
+
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                builder.setTitle("Delete Cart");
+////                builder.setMessage("Do you want to delete: "+listData.get(i).getProductName());
+//                builder.setIcon(R.drawable.ic_cart_black);
+//                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        Order order = listData.get(i);
+//                        listData.remove(order);
+//                        new Database(context).cleanCart();
+//                        for (Order item:listData)
+//                            new Database(context).addToCart(item);
+//                        ((Cart)context).loadListCart();
+//                        Toast.makeText(context, order.getProductName()+" was deleted", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                    }
+//                });
+//                builder.show();
+
 
 
             }

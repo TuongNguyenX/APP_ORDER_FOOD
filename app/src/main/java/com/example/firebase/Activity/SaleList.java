@@ -1,15 +1,15 @@
 package com.example.firebase.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Interface.ItemClickListener;
@@ -53,7 +53,7 @@ public class SaleList extends AppCompatActivity {
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("SaleDetail");
+        databaseReference = firebaseDatabase.getReference("SaleDetailTuongAZ");
 
 
         if (getIntent() != null) {

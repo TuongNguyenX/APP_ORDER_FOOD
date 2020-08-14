@@ -1,15 +1,15 @@
 package com.example.firebase.Activity;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.User;
@@ -21,12 +21,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import dmax.dialog.SpotsDialog;
 import io.paperdb.Paper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
 
     Button bt_dangnhap,bt_dangky;
+    AlertDialog alertDialog;
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -65,12 +67,14 @@ public class MainActivity extends AppCompatActivity {
     //copu code from register class
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("User");
+        final DatabaseReference table_user = database.getReference("UserTuongAZ");
         if (Common.isConnectedtoInternet(getBaseContext())) {
-            final ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
-            mDialog.setTitle("Connecting");
-            mDialog.setMessage("Please waiting...");
-            mDialog.show();
+//            final ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
+//            mDialog.setTitle("Connecting");
+//            mDialog.setMessage("Please waiting...");
+//            mDialog.show();
+            alertDialog = new SpotsDialog.Builder().setCancelable(false).setContext(this).build();
+            alertDialog.show();
             table_user.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -90,14 +94,11 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(MainActivity.this, "User is not register", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
-
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                    alertDialog.dismiss();
+                    Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
                 }
             });
 

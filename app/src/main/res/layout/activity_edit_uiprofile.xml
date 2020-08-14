@@ -12,13 +12,27 @@
         android:layout_height="wrap_content">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        app:titleTextColor="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#FF5722"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarEditUiProfile"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/white"
+                android:theme="@style/ToolbarColoredBackArrow"
+                app:titleTextColor="@android:color/black"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
 
         android:orientation="horizontal"

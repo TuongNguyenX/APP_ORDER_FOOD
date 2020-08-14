@@ -6,51 +6,47 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-
-import com.andremion.counterfab.CounterFab;
-import com.example.firebase.Database.Database;
-import com.example.firebase.GoogleMap.MapsActivity;
-import com.example.firebase.R;
-import com.example.firebase.Service.ListenOrder;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.andremion.counterfab.CounterFab;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.firebase.Common.Common;
+import com.example.firebase.Database.Database;
+import com.example.firebase.GoogleMap.MapsActivity;
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Banner;
 import com.example.firebase.Model.Category;
 import com.example.firebase.Model.Category2;
 import com.example.firebase.Model.CategoryOther;
-
+import com.example.firebase.R;
+import com.example.firebase.Service.ListenOrder;
 import com.example.firebase.ViewHolder.MenuViewHold;
 import com.example.firebase.ViewHolder.MenuViewHoldOther;
 import com.example.firebase.ViewHolder.MenuViewHolder2;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,13 +54,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.rengwuxian.materialedittext.MaterialEditText;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
-import java.util.Map;
 
-import dmax.dialog.SpotsDialog;
 import info.hoang8f.widget.FButton;
 import io.paperdb.Paper;
 
@@ -96,12 +89,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         setContentView(R.layout.activity_home);
         ///init Firebase
         database = FirebaseDatabase.getInstance();
-        category = database.getReference("Category");
+        category = database.getReference("CategoryTuongAZ");
 
         database_CategoryOther = FirebaseDatabase.getInstance();
-        databaseReference_CategoryOther = database_CategoryOther.getReference("CategoryOther");
+        databaseReference_CategoryOther = database_CategoryOther.getReference("CategoryOtherTuongAZ");
         database_Sale = FirebaseDatabase.getInstance();
-        databaseReference_Sale = database_Sale.getReference("Sale");///Sale
+        databaseReference_Sale = database_Sale.getReference("SaleTuongAZ");///Sale
         /////////////////
         ///Set Up Slider
         setupSlider();
@@ -325,7 +318,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private void setupSlider() {
         mSlider = findViewById(R.id.slider);
         img_list = new HashMap<>();
-        final DatabaseReference banners = database.getReference("Banner");
+        final DatabaseReference banners = database.getReference("BannerTuongAZ");
 
         banners.addValueEventListener(new ValueEventListener() {
             @Override
@@ -431,7 +424,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(map);
         }
         else if(id == R.id.nav_change_Passwrod){
-           showDialongChangePassword();
+//           showDialongChangePassword();
         }
         else if(id == R.id.nav_info_Customer){
 
@@ -499,70 +492,70 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         alerdialog.show();
     }
 
-    private void showDialongChangePassword() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Home.this);
-        alertDialog.setTitle("Change Password");
-        alertDialog.setMessage("Please fill fun imformation");
-
-        LayoutInflater inflater = this.getLayoutInflater();
-        View change_Password = inflater.inflate(R.layout.change_password,null);
-
-        final MaterialEditText edtChangPassword = change_Password.findViewById(R.id.edtChangePassword);
-        final MaterialEditText edtNewPassword = change_Password.findViewById(R.id.edtNewPassword);
-        final MaterialEditText edtRepeatPassword = change_Password.findViewById(R.id.edtRepeatPassword);
-        alertDialog.setPositiveButton("Change", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                final android.app.AlertDialog waitingDialog  = new SpotsDialog(Home.this);
-                waitingDialog.show();
-
-                ///Check old password
-
-                if (edtChangPassword.getText().toString().equals(Common.currentUser.getPassword())){
-
-                    ////check new  password and repeat password
-                    if (edtNewPassword.getText().toString().equals(edtRepeatPassword.getText().toString())){
-                        Map<String,Object> passwordUpdate = new HashMap<>();
-                        passwordUpdate.put("password",edtNewPassword.getText().toString());
-
-                        ///make database
-                        DatabaseReference user = FirebaseDatabase.getInstance().getReference("User");
-                         user.child(Common.currentUser.getPhone())
-                                 .updateChildren(passwordUpdate)
-                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                     @Override
-                                     public void onComplete(@NonNull Task<Void> task) {
-                                         waitingDialog.dismiss();
-                                         Toast.makeText(Home.this, "Password was update", Toast.LENGTH_SHORT).show();
-                                     }
-                                 })
-                                 .addOnFailureListener(new OnFailureListener() {
-                                     @Override
-                                     public void onFailure(@NonNull Exception e) {
-                                         Toast.makeText(Home.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                     }
-                                 });
-                    }
-                    else {
-                        waitingDialog.dismiss();
-                        Toast.makeText(Home.this, "New Password doesn't match", Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(Home.this, "Wrong old  password ", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-
-            }
-        });
-        alertDialog.setView(change_Password);
-        alertDialog.setIcon(R.drawable.ic_change_password);
-        alertDialog.show();
-    }
+//    private void showDialongChangePassword() {
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Home.this);
+//        alertDialog.setTitle("Change Password");
+//        alertDialog.setMessage("Please fill fun imformation");
+//
+//        LayoutInflater inflater = this.getLayoutInflater();
+//        View change_Password = inflater.inflate(R.layout.change_password,null);
+//
+//        final MaterialEditText edtChangPassword = change_Password.findViewById(R.id.edtChangePassword);
+//        final MaterialEditText edtNewPassword = change_Password.findViewById(R.id.edtNewPassword);
+//        final MaterialEditText edtRepeatPassword = change_Password.findViewById(R.id.edtRepeatPassword);
+//        alertDialog.setPositiveButton("Change", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                final android.app.AlertDialog waitingDialog  = new SpotsDialog(Home.this);
+//                waitingDialog.show();
+//
+//                ///Check old password
+//
+//                if (edtChangPassword.getText().toString().equals(Common.currentUser.getPassword())){
+//
+//                    ////check new  password and repeat password
+//                    if (edtNewPassword.getText().toString().equals(edtRepeatPassword.getText().toString())){
+//                        Map<String,Object> passwordUpdate = new HashMap<>();
+//                        passwordUpdate.put("password",edtNewPassword.getText().toString());
+//
+//                        ///make database
+//                        DatabaseReference user = FirebaseDatabase.getInstance().getReference("User");
+//                         user.child(Common.currentUser.getPhone())
+//                                 .updateChildren(passwordUpdate)
+//                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                     @Override
+//                                     public void onComplete(@NonNull Task<Void> task) {
+//                                         waitingDialog.dismiss();
+//                                         Toast.makeText(Home.this, "Password was update", Toast.LENGTH_SHORT).show();
+//                                     }
+//                                 })
+//                                 .addOnFailureListener(new OnFailureListener() {
+//                                     @Override
+//                                     public void onFailure(@NonNull Exception e) {
+//                                         Toast.makeText(Home.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                                     }
+//                                 });
+//                    }
+//                    else {
+//                        waitingDialog.dismiss();
+//                        Toast.makeText(Home.this, "New Password doesn't match", Toast.LENGTH_SHORT).show();
+//                    }
+//                }else {
+//                    Toast.makeText(Home.this, "Wrong old  password ", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//
+//            }
+//        });
+//        alertDialog.setView(change_Password);
+//        alertDialog.setIcon(R.drawable.ic_change_password);
+//        alertDialog.show();
+//    }
 
 
 

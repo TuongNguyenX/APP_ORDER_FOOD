@@ -42,7 +42,7 @@ public class MyTeam extends AppCompatActivity {
         /////set font///////////
         /////set font///////
         database = FirebaseDatabase.getInstance();
-        team = database.getReference("Team");
+        team = database.getReference("TeamTuongAZ");
         recyler_menu = findViewById(R.id.recycler_team);
         layoutManager = new LinearLayoutManager(this);//them luc sau //
         recyler_menu.setLayoutManager(layoutManager);

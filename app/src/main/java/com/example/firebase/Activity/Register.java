@@ -1,9 +1,6 @@
 package com.example.firebase.Activity;
 
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -12,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.User;
@@ -45,7 +45,7 @@ public class Register extends AppCompatActivity {
             }
         });
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("User");
+        final DatabaseReference table_user = database.getReference("UserTuongAZ");
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

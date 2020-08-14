@@ -47,7 +47,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
     String categoryId = null;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference,databaseReference_CategoryId;
-    Food currentFood;
+    Food   currentFood;
     CategoryOther current_CategoryOther;
     Button button_buy;
     DatabaseReference ratingTb1;
@@ -67,9 +67,9 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
         numberButton = findViewById(R.id.number_Food_Detail);
         counterFab_Cart = findViewById(R.id.fab_Cart);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Food");
-        databaseReference_CategoryId = firebaseDatabase.getReference("CategoryOther");
-        ratingTb1 = firebaseDatabase.getReference("Rating");
+        databaseReference = firebaseDatabase.getReference("FoodTuongAZ");
+        databaseReference_CategoryId = firebaseDatabase.getReference("CategoryOtherTuongAZ");
+        ratingTb1 = firebaseDatabase.getReference("RatingTuongAZ");
         img_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

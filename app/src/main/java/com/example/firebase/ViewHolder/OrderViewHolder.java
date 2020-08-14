@@ -1,10 +1,13 @@
 package com.example.firebase.ViewHolder;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import android.content.Context;
 import android.view.ContextMenu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Interface.ItemClickListener;
@@ -14,6 +17,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements
         View.OnClickListener,
         View.OnCreateContextMenuListener
  {
+     Context context;
     public TextView txtOrderId,txtOrderStatus,
             txtOrderPhone,txtOrderAddress,
             txtOrderName,
@@ -22,8 +26,9 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements
             txtOrderEmail;
     private ItemClickListener itemClickListener;
 
+    public ImageView imageViewDelete;
 
-    public OrderViewHolder(@NonNull View itemView) {
+     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
         txtOrderComments = itemView.findViewById(R.id.order_comments);
         txtOrderTotal = itemView.findViewById(R.id.order_total_food);
@@ -34,8 +39,13 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements
         txtOrderName = itemView.findViewById(R.id.order_name);
         txtOrderEmail = itemView.findViewById(R.id.order_email);
         txtOrderDate = itemView.findViewById(R.id.order_time_food);
-        itemView.setOnCreateContextMenuListener(this);
+         imageViewDelete = itemView.findViewById(R.id.imageViewDelete);
+
+         itemView.setOnCreateContextMenuListener(this);
         itemView.setOnClickListener(this);
+
+
+
 
     }
     public void setItemClickListener(ItemClickListener itemClickListener) {

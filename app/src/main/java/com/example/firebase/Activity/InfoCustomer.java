@@ -1,14 +1,14 @@
 package com.example.firebase.Activity;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.User;
@@ -43,7 +43,7 @@ public class InfoCustomer extends AppCompatActivity {
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("User");
+        databaseReference = firebaseDatabase.getReference("UserTuongAZ");
 
         tv_name.setText(this.user.getName());
         tv_phone.setText(this.user.getPhone());
@@ -68,10 +68,11 @@ public class InfoCustomer extends AppCompatActivity {
         edtPassword = add_menu_layout.findViewById(R.id.edtPasswordInfoCustomer);
         edtPhone= add_menu_layout.findViewById(R.id.edtPhoneInfoCustomer);
         ////set daufault value  for view
-        edtName.setText(this.user.getName());
-        edtPhone.setText(this.user.getPhone());
-        edtPassword.setText(this.user.getPassword());
-        edtEmail.setText(this.user.getEmail());
+
+        edtName.setText(user.getName());
+        edtPhone.setText(user.getPhone());
+        edtPassword.setText(user.getPassword());
+        edtEmail.setText(user.getEmail());
 
         alertDialog.setView(add_menu_layout);
         alertDialog.setIcon(R.drawable.ic_add);
@@ -86,6 +87,9 @@ public class InfoCustomer extends AppCompatActivity {
                 user.setPhone(edtPhone.getText().toString());
                 user.setPassword(edtPassword.getText().toString());
                 databaseReference.child(user.getPhone()).setValue(user);
+//                Toast.makeText(InfoCustomer.this, "User was updated", Toast.LENGTH_SHORT).show();
+
+                finish();
 
             }
         });

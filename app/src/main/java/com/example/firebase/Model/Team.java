@@ -1,6 +1,8 @@
 package com.example.firebase.Model;
 
-public class Team {
+import java.io.Serializable;
+
+public class Team implements Serializable {
     private String Name;
     private String Image;
     private String Location;

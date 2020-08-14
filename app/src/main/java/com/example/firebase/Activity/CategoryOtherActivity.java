@@ -1,8 +1,5 @@
 package com.example.firebase.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
@@ -57,8 +57,8 @@ public class CategoryOtherActivity extends AppCompatActivity implements RatingDi
         setContentView(R.layout.activity_category_other);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("CategoryOther");
-        ratingTb1 = firebaseDatabase.getReference("Rating");
+        databaseReference = firebaseDatabase.getReference("CategoryOtherTuongAZ");
+        ratingTb1 = firebaseDatabase.getReference("RatingTuongAZ");
         tv_feedback_name = findViewById(R.id.tv_feedback_name);
         tv_feedback_email = findViewById(R.id.tv_feedback_email);
         tv_feedback_phone = findViewById(R.id.tv_feedback_phone);

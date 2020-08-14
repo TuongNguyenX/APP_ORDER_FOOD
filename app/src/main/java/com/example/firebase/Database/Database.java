@@ -24,7 +24,6 @@ public class Database extends SQLiteAssetHelper {
         String[] sqlSelect={"ProductName","ProductId","Quantity","Price","Discount","Image"};
         String sqlTable="OrderDetail";
         qb.setTables(sqlTable);
-
         Cursor c = qb.query(db,sqlSelect,null,null,null,null,null);
         final List<Order> result = new ArrayList<>();
         if (c.moveToFirst()){

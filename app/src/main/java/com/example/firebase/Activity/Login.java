@@ -1,9 +1,6 @@
 package com.example.firebase.Activity;
 
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Model.User;
@@ -68,7 +68,7 @@ public class Login extends AppCompatActivity {
         bt_login = findViewById(R.id.button3);
         edtPhone=findViewById(R.id.editTextphone);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("User");
+        final DatabaseReference table_user = database.getReference("UserTuongAZ");
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

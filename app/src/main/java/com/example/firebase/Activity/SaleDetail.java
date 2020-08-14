@@ -1,8 +1,5 @@
 package com.example.firebase.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +7,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.firebase.Common.Common;
@@ -45,7 +45,7 @@ public class SaleDetail extends AppCompatActivity {
         controller();
 
         firebaseDatabase =  FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("SaleDetail");
+        databaseReference = firebaseDatabase.getReference("SaleDetailTuongAZ");
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

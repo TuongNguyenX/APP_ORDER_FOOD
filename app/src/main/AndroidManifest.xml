@@ -88,11 +88,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
         </activity>
@@ -103,12 +99,12 @@
         <activity
             android:name=".Activity.UIProfile"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUIProfile" />
+            android:theme="@style/AppThemeOrder"/>
         <activity android:name=".Activity.TestEmpty" />
         <activity
             android:name=".Activity.MyTeam"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeLogin" />
+            android:theme="@style/AppThemeOrder" />
         <activity android:name=".Activity.Test" />
         <activity
             android:name=".Activity.OrderStatus"
@@ -131,7 +127,11 @@
             android:name=".Activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Login"

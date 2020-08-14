@@ -1,11 +1,5 @@
 package com.example.firebase.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -14,6 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.firebase.Common.Common;
 import com.example.firebase.Database.Database;
@@ -127,8 +127,8 @@ public class FoodList extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference_Food = firebaseDatabase.getReference("Food");
-        databaseReference_Category = firebaseDatabase.getReference("Category");
+        databaseReference_Food = firebaseDatabase.getReference("FoodTuongAZ");
+        databaseReference_Category = firebaseDatabase.getReference("CategoryTuongAZ");
 
 
        /////////////////

@@ -44,7 +44,7 @@ public class Cart extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference requests;
 
-    TextView  txtTotalPrice;
+    TextView  txtTotalPrice,txtNotData;
     Button btnPlace;
     List<Order> carts = new ArrayList<>();
     CartAdapter adapter;
@@ -63,39 +63,68 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         setToolBar();
-
-
         database = FirebaseDatabase.getInstance();
-        requests = database.getReference("Requests");
-
-
-
-
-
+        requests = database.getReference("RequestsTuongAZ");
         recyclerView = findViewById(R.id.listCart);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
+        txtNotData = findViewById(R.id.textviewkhongcodulieu);
         txtTotalPrice = findViewById(R.id.total);
         btnPlace = findViewById(R.id.btnPlaceOrder);
         btnPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-               if (carts.size() >0)
-                   showAlertDialog();
-                else
-                   Toast.makeText(Cart.this, "Your Cart Empty !!!", Toast.LENGTH_SHORT).show();
+                checkCartEmpty();
             }
 
 
         });
-
-
-
-
         loadListCart();
+    }
+
+
+    public void loadListCart() {
+//       if (carts.size()>0){
+//           carts = new Database(this).getCarts();
+//           adapter= new CartAdapter(carts,this);
+//           adapter.notifyDataSetChanged();
+//           recyclerView.setAdapter(adapter);
+//
+//           int total = 0;
+//           for (Order order:carts)
+//               total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
+//           Locale locale = new Locale("vi","VN");
+//           NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
+//           txtTotalPrice.setText(fmt.format(total));
+//           txtNotData.setVisibility(View.GONE);
+//           recyclerView.setVisibility(View.VISIBLE);
+//       }else {
+//            recyclerView.setVisibility(View.GONE);
+//                txtNotData.setVisibility(View.VISIBLE);
+//       }
+
+
+        carts = new Database(this).getCarts();
+        adapter= new CartAdapter(carts,this);
+        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);
+        int total = 0;
+        for (Order order:carts)
+            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
+        Locale locale = new Locale("vi","VN");
+        NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
+        txtTotalPrice.setText(fmt.format(total));
+
+
+    }
+
+    private void checkCartEmpty() {
+        if (carts.size() >0) {
+            showAlertDialog();
+        } else{
+            Toast.makeText(Cart.this, "Your Cart Empty !!!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setToolBar() {
@@ -170,28 +199,6 @@ public class Cart extends AppCompatActivity {
 
     }
 
-    public void loadListCart() {
-
-        carts = new Database(this).getCarts();
-        adapter= new CartAdapter(carts,this);
-        adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(adapter);
-
-
-        int total = 0;
-        for (Order order:carts)
-            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
-        Locale locale = new Locale("vi","VN");
-        NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
-        txtTotalPrice.setText(fmt.format(total));
-
-
-    }
-//////////////menu///////////////
-
-
-
-
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         if (item.getTitle().equals(Common.DELETE))
@@ -199,8 +206,6 @@ public class Cart extends AppCompatActivity {
         return true;
 
     }
-
-
 
     private void deleteCart(int order) {
         //// Remove item ai list<Order> by position

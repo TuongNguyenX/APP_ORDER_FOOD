@@ -2,14 +2,14 @@ package com.example.firebase.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firebase.Model.Team;
 import com.example.firebase.R;
@@ -34,13 +34,8 @@ public class UIProfile extends AppCompatActivity {
     Team currentteam;
     ImageView img_profile_edit;
     FirebaseRecyclerAdapter<Team, TeamViewHolder> adapter;
+    Team teams;
 
-    EditText    et_name_edit,
-                et_status_edit,
-                et_student_edit,
-                et_from_edit,
-                et_live_edit,
-                et_jonined_edit;
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -59,7 +54,7 @@ public class UIProfile extends AppCompatActivity {
         anhxa();
 
         database = FirebaseDatabase.getInstance();
-        team = database.getReference("Team");
+        team = database.getReference("TeamTuongAZ");
 
         if (getIntent()!= null) {
             teamId = getIntent().getStringExtra("TeamId");
@@ -71,13 +66,14 @@ public class UIProfile extends AppCompatActivity {
         img_profile_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = txt_name.getText().toString();
-
-
-                Intent i = new Intent(UIProfile.this, EditUIProfile.class);
-                i.putExtra("MyTeamId",name);
-
-                startActivity(i);
+                Intent intent = new Intent(UIProfile.this, EditUIProfile.class);
+                intent.putExtra("MyTeamId", currentteam);
+                startActivity(intent);
+//                String name = txt_name.getText().toString();
+//                Intent i = new Intent(UIProfile.this, EditUIProfile.class);
+//                i.putExtra("MyTeamId",name);
+//
+//                startActivity(i);
             }
         });
         img_more.setOnClickListener(new View.OnClickListener() {

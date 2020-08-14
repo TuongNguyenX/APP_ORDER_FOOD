@@ -1,21 +1,20 @@
 package com.example.firebase.Activity;
 
 import android.content.DialogInterface;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.firebase.Common.Common;
-
 import com.example.firebase.Interface.ItemClickListener;
 import com.example.firebase.Model.Request;
 import com.example.firebase.R;
@@ -32,8 +31,8 @@ public class OrderStatus extends AppCompatActivity {
     FirebaseDatabase database;
 
     DatabaseReference requests;
-
     ///Spiner
+    TextView textviewkhongcodulieu;
     MaterialSpinner spinner;
 
     @Override
@@ -44,8 +43,8 @@ public class OrderStatus extends AppCompatActivity {
         toolBarOfOrder();
         ///Firebase
         database = FirebaseDatabase.getInstance();
-        requests = database.getReference("Requests");
-
+        requests = database.getReference("RequestsTuongAZ");
+        textviewkhongcodulieu = findViewById(R.id.textviewkhongcodulieu);
         recyclerView = findViewById(R.id.listOrder);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -78,17 +77,15 @@ public class OrderStatus extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void loadOrders(String phone) {
+    public void loadOrders(String phone) {
         adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(
                 Request.class,
                 R.layout.order_layout,
                 OrderViewHolder.class,
                 requests.orderByChild("phone")
-                        .equalTo(phone)
-        )
-        {
+                        .equalTo(phone)) {
             @Override
-            protected void populateViewHolder(OrderViewHolder viewHolder, final Request model, int position) {
+            protected void populateViewHolder(OrderViewHolder viewHolder, final Request model, final int position) {
 
                 viewHolder.txtOrderId.setText(adapter.getRef(position).getKey());
                 viewHolder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
@@ -111,6 +108,33 @@ public class OrderStatus extends AppCompatActivity {
 
                     }
                 });
+
+
+                viewHolder.imageViewDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(OrderStatus.this);
+                        builder.setTitle("Delete Your Order");
+                        builder.setMessage("Do you want to delete it ?");
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int itemposition = position;
+                                String key= adapter.getRef(itemposition).getKey();
+                                requests.child(key).removeValue();
+                            }
+                        });
+                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                        builder.show();
+
+                    }
+                });
+
             }
         };
 //        adapter.notifyDataSetChanged();
@@ -118,7 +142,10 @@ public class OrderStatus extends AppCompatActivity {
 
     }
 
+    private void dialogDeleteItem() {
 
+
+    }
 
 
     @Override
@@ -134,7 +161,7 @@ public class OrderStatus extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
-    private void showDeleteDiaLog(String key) {
+    public void showDeleteDiaLog(String key) {
         requests.child(key).removeValue();
     }
 
